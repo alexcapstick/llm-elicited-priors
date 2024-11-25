@@ -1,11 +1,6 @@
 # Using Large Language Models for Expert Prior Elicitation in Predictive Modelling
 
-
-This is the corresponding to the paper **Using Large Language Models for Expert Prior Elicitation in Predictive Modelling**.
-
-This repository contains the experimental code for reproducing the results in the paper and implementing the proposed method for new tasks.
-
-
+This is the repository corresponding to the paper **Using Large Language Models for Expert Prior Elicitation in Predictive Modelling** and contains the experimental code for reproducing the results in the paper and implementing the proposed method for new tasks.
 
 
 ## Installation
@@ -138,7 +133,7 @@ Please see `my_code.gpt.GPTOutputs`, `my_code.gpt.LlamaOutputs`, and `my_code.gp
 
 ## Reproducing the experiments
 
-All of the results presented in the paper are saved within the `results` folder, all of the elicited and approximated priors are saved within the `priors` folder, and all of the approximated posteriors are saved within the `posteriors` folder.
+All of the results presented in the paper are saved within the `results` folder, all of the approximated posteriors are saved within the `posteriors` folder, all of the elicited and approximated priors are saved within the `priors` folder, and all of the prompts are contained within the `prompts` folder.
 
 These results are used to produce the figures and tables presented in the paper, which can be generated using the notebooks in the root directory.
 
