@@ -238,6 +238,11 @@ def load_uti(
 
     path = path.joinpath("uti_dataset.parquet")
 
+    if not path.exists():
+        raise FileNotFoundError(
+            f"The UTI dataset is a private dataset, please run the experiments with other datasets."
+        )
+
     uti_dataset_df = (
         pd.read_parquet(path)
         .drop(
