@@ -1,0 +1,12 @@
+**/__pycache__/
+**/.ipynb_checkpoints/**
+nohup/*
+**/.DS_Store
+**/._.DS_Store
+.venv/*
+.vscode/*
+datasets/*
+.env
+**/archive/**
+**/meta-llama/**
+exp*.log

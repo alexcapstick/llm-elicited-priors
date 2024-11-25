@@ -1,0 +1,152 @@
+
+I am a data scientist with a dataset and the task: predicting wine 
+quality from its physicochemical characteristics. 
+I would like to use your model to predict the quality of my samples.
+I have a dataset that is made up of the following features:
+{feature_names}.
+All of the feature values are standardized using the z-score.
+By thinking about how each feature might be related to the quality of 
+{unique_targets}, 
+and whether each feature is positively or negatively correlated with the 
+outcome of
+{target_map},
+I would like you to guess the 
+mean and standard deviation for a normal distribution prior for each feature
+for a logistic regression model can be used for
+predicting wine quality from its physicochemical characteristics.
+Please respond with a JSON object with the feature names as keys 
+and a nested dictionary of mean and standard deviation as values.
+A positive mean indicates a positive correlation with the outcome,
+a negative mean indicates a negative correlation with the outcome,
+whilst a small standard deviation indicates that you are confident in your guess.
+Please only respond with a JSON, no other text.
+
+
+As a data scientist, I have a dataset and the task of predicting wine 
+quality based on its physicochemical characteristics. I seek to use your 
+model to predict the quality of my samples. My dataset includes these 
+features: {feature_names}. Each feature value is standardized using the 
+z-score. By considering how each feature might relate to the quality of 
+{unique_targets} and whether each feature is positively or negatively 
+correlated with the outcome of {target_map}, I would like you to estimate 
+the mean and standard deviation for a normal distribution prior for each 
+feature for a logistic regression model. This model will be used to predict 
+wine quality from its physicochemical characteristics. Please provide a JSON 
+object with the feature names as keys and a nested dictionary of mean and 
+standard deviation as values. A positive mean indicates a positive correlation 
+with the outcome, a negative mean indicates a negative correlation with the 
+outcome, and a small standard deviation indicates confidence in your guess. 
+Respond only with a JSON, no other text.
+
+
+I am a data scientist tasked with predicting wine quality from its physicochemical 
+characteristics. I would like to use your model to predict the quality of my samples.
+My dataset contains the following features: {feature_names}, all standardized 
+using the z-score. By analyzing how each feature might be associated with the 
+quality of {unique_targets} and whether each feature is positively or negatively 
+correlated with the outcome of {target_map}, I would like you to guess the mean 
+and standard deviation for a normal distribution prior for each feature. This will 
+be for a logistic regression model predicting wine quality from its physicochemical 
+characteristics. Please reply with a JSON object where feature names are keys and 
+a nested dictionary of mean and standard deviation are values. A positive mean 
+suggests a positive correlation with the outcome, a negative mean suggests a 
+negative correlation, and a small standard deviation suggests high confidence. 
+Please respond with only a JSON, no other text.
+
+
+As a data scientist working on predicting wine quality from physicochemical 
+characteristics, I need to use your model to evaluate my samples. My dataset 
+consists of the following features: {feature_names}, all standardized via the 
+z-score method. By thinking about the relationship of each feature to the 
+quality of {unique_targets} and the positive or negative correlation with the 
+outcome of {target_map}, I need you to estimate the mean and standard deviation 
+for a normal distribution prior for each feature. This is for a logistic 
+regression model that predicts wine quality from its physicochemical characteristics. 
+Please provide a JSON object where the feature names are keys and each key has 
+a nested dictionary with mean and standard deviation as values. A positive mean 
+shows a positive correlation, a negative mean shows a negative correlation, and 
+a small standard deviation shows confidence. Please respond with a JSON only, 
+no other text.
+
+
+I am a data scientist with a dataset focused on predicting wine quality based 
+on physicochemical characteristics. I would like to use your model for quality 
+prediction. The dataset includes the following features: {feature_names}, all 
+standardized using the z-score. By considering the relationship between each 
+feature and the quality of {unique_targets}, and whether each feature is 
+positively or negatively correlated with {target_map}, I need you to guess the 
+mean and standard deviation for a normal distribution prior for each feature. 
+This will be used for a logistic regression model predicting wine quality from 
+its physicochemical characteristics. Respond with a JSON object with feature 
+names as keys and a nested dictionary of mean and standard deviation as values. 
+A positive mean indicates a positive correlation, a negative mean indicates a 
+negative correlation, and a small standard deviation indicates high confidence. 
+Please respond with only a JSON, no other text.
+
+
+As a data scientist, I aim to predict wine quality using physicochemical 
+characteristics and your model. My dataset includes these features: {feature_names}, 
+standardized via the z-score. By evaluating how each feature may relate to the 
+quality of {unique_targets} and the correlation direction with {target_map}, 
+I would like you to estimate the mean and standard deviation for a normal 
+distribution prior for each feature. This logistic regression model will predict 
+wine quality from its physicochemical characteristics. Please provide a JSON 
+object with feature names as keys and a nested dictionary of mean and standard 
+deviation as values. A positive mean indicates a positive correlation, a 
+negative mean indicates a negative correlation, and a small standard deviation 
+indicates high confidence. Respond with only a JSON, no other text.
+
+
+I am a data scientist with a task of predicting wine quality from physicochemical 
+characteristics and would like to use your model. My dataset comprises the 
+following features: {feature_names}, standardized using the z-score. By analyzing 
+how each feature might relate to the quality of {unique_targets} and their 
+correlation with the outcome of {target_map}, please guess the mean and standard 
+deviation for a normal distribution prior for each feature. This will be used 
+for a logistic regression model to predict wine quality from physicochemical 
+characteristics. Please respond with a JSON object where feature names are keys 
+and each key has a nested dictionary of mean and standard deviation as values.
+A positive mean indicates a positive correlation, a negative mean indicates a 
+negative correlation, and a small standard deviation indicates confidence. Only 
+respond with a JSON, no other text.
+
+
+As a data scientist, I am working on a dataset with the goal of predicting wine 
+quality from its physicochemical characteristics. I need your model to predict 
+the quality of my samples. My dataset consists of these features: {feature_names}, 
+all standardized using the z-score. By considering the relationship of each feature 
+to the quality of {unique_targets} and whether they are positively or negatively 
+correlated with the outcome of {target_map}, I need you to estimate the mean and 
+standard deviation for a normal distribution prior for each feature. This logistic 
+regression model will predict wine quality from physicochemical characteristics. 
+Please respond with a JSON object, listing feature names as keys and a nested 
+dictionary of mean and standard deviation as values. Positive mean suggests positive 
+correlation, negative mean suggests negative correlation, and small standard deviation 
+indicates high confidence. Respond only with a JSON, no other text.
+
+
+I am a data scientist aiming to predict wine quality from its physicochemical 
+characteristics using your model. My dataset includes these features: {feature_names}, 
+standardized via the z-score. By thinking about how each feature relates to the 
+quality of {unique_targets} and their correlation with {target_map}, I would like 
+you to estimate the mean and standard deviation for a normal distribution prior 
+for each feature. This will be used for a logistic regression model to predict 
+wine quality from physicochemical characteristics. Please provide a JSON object 
+with feature names as keys and a nested dictionary of mean and standard deviation 
+as values. A positive mean indicates positive correlation, a negative mean 
+indicates negative correlation, and a small standard deviation indicates confidence. 
+Please respond with only a JSON, no other text.
+
+
+As a data scientist, my task is to predict wine quality from its physicochemical 
+characteristics, and I want to use your model for this. My dataset includes the 
+following features: {feature_names}, all standardized using the z-score. By 
+considering how each feature might relate to the quality of {unique_targets} 
+and their correlation direction with {target_map}, I need you to estimate the mean 
+and standard deviation for a normal distribution prior for each feature. This will 
+be used for a logistic regression model predicting wine quality from its physicochemical 
+characteristics. Please respond with a JSON object where the feature names are keys and 
+each key has a nested dictionary with mean and standard deviation as values. A 
+positive mean indicates a positive correlation, a negative mean indicates a negative 
+correlation, and a small standard deviation indicates high confidence. Respond only 
+with a JSON, no other text.

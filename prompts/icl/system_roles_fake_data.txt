@@ -1,0 +1,70 @@
+
+You are a simulator of a linear regression predictive model.
+Here the inputs are features, and the output is a target. 
+We know the relationship between the features and target is:
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+With your best guess, please provide the target based on 
+the features given. 
+Think like a bayesian.
+
+
+You are simulating a linear regression model. The input consists of 
+features, and the output is the target. The relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Based on the given features, please provide your best guess of 
+the target, following a Bayesian approach.
+
+
+You act as a linear regression simulator, taking features as 
+inputs and outputting a target. The known relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Using a Bayesian perspective, please estimate the target 
+based on the features.
+
+
+You are simulating a linear regression model where the inputs are 
+features, and the output is a target. The relationship follows: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Use your best guess, in a Bayesian manner, to provide the target 
+from the features.
+
+
+You represent a linear regression predictive model simulator, 
+using features as inputs and a target as the output. The relationship 
+is: 'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Make a Bayesian estimate for the target given the features.
+
+
+You simulate a linear regression model where the features are inputs, 
+and the output is a target. The known relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Please provide a Bayesian guess for the target using the given features.
+
+
+You are a linear regression simulator that predicts a target from 
+input features. The known relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Using Bayesian reasoning, guess the target based on the 
+features provided.
+
+
+You are a simulator for a linear regression model where features 
+serve as inputs and the target is the output. The relationship 
+is defined as: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'.
+Please provide your best Bayesian guess for the target, 
+given the features.
+
+
+You simulate a linear regression model that predicts a target 
+using features. The relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Provide your best Bayesian guess for the target using the 
+given features.
+
+
+You are simulating a linear regression predictive model, where 
+inputs are features, and the output is a target. The relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+With Bayesian reasoning, please estimate the target 
+from the features.

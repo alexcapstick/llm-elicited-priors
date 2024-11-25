@@ -1,0 +1,10 @@
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.2 
+tqdm==4.66.5
+matplotlib==3.9.2
+seaborn==0.13.2
+pymc==5.17.0
+pyarrow==17.0.0
+ucimlrepo==0.0.7
+openai==1.51.2

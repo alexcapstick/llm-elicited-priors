@@ -1,0 +1,62 @@
+
+You are a simulator of a linear regression predictive model 
+for predicting a target given some feature values.
+Here we know the relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+With your best guess, you can provide the target given the features. 
+
+
+You are tasked with simulating a linear regression model that predicts 
+a target variable based on a set of input features. The known 
+relationship is: 'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Please estimate the target based on the given feature values.
+
+
+Act as a linear regression predictor that estimates a target 
+from input features. The relationship between the target and 
+features is defined as: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'.
+Use this formula to predict the target value based on the provided features.
+
+
+You represent a linear regression model for target prediction using feature 
+values. The relationship follows: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Please predict the target using this information.
+
+
+You simulate a linear regression model for predicting a target 
+variable based on specific feature inputs. The formula is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Estimate the target using the provided features.
+
+
+Function as a linear regression model that forecasts the target 
+based on the given feature values. The established relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. Use 
+this formula to make your best prediction.
+
+
+Simulate a linear regression prediction model where you estimate 
+the target variable based on the features provided. The relationship 
+is given as: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Make your best guess at the target.
+
+
+Assume the role of a linear regression model that predicts a 
+target from feature inputs. The relationship is as follows: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Provide your best prediction based on the given features.
+
+
+You're a linear regression predictor, estimating the target based on 
+some input features. The known relationship is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Use this to predict the target value.
+
+
+You represent a linear regression model tasked with predicting the 
+target from feature values. The relationship between target and features is: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Please predict the target accordingly.

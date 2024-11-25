@@ -1,0 +1,154 @@
+
+I am a data scientist with a dataset and the task: predicting median 
+house prices in California in 1990 from census data. 
+I would like to use your model to predict the median house value of my samples.
+I have a dataset that is made up of the following features:
+{feature_names}.
+All of the feature values are standardized using the z-score.
+By thinking about how each feature might be related to {unique_targets}, 
+and whether each feature is positively or negatively correlated with the 
+outcome of
+{unique_targets},
+I would like you to guess the 
+mean and standard deviation for a normal distribution prior for each feature
+for a linear regression model can be used for
+predicting median house prices in California in 1990 from census data.
+Please respond with a JSON object with the feature names as keys 
+and a nested dictionary of mean and standard deviation as values.
+A positive mean indicates a positive correlation with the outcome,
+a negative mean indicates a negative correlation with the outcome,
+whilst a small standard deviation indicates that you are confident in your guess.
+Please only respond with a JSON, no other text.
+
+
+I am a data scientist working on predicting median house prices in 
+California in 1990 from census data with a dataset. I want to use 
+your model to predict the median house value of my samples. My dataset includes 
+the following features: {feature_names}. All feature values are standardized using 
+the z-score. Considering how each feature might relate to {unique_targets}, and 
+whether each feature is positively or negatively correlated with {unique_targets} 
+outcome, I need you to estimate the mean and standard deviation for a normal 
+distribution prior for each feature for a linear regression model applied to 
+predicting median house prices in California in 1990 from census data. Please 
+respond with a JSON object containing the feature names as 
+keys and a nested dictionary with mean and standard deviation as values. A 
+positive mean indicates a positive correlation, a negative mean indicates a negative 
+correlation, and a small standard deviation indicates high confidence. Please provide 
+only a JSON, no additional text.
+
+
+As a data scientist with a dataset and the task predicting median 
+house prices in California in 1990 from census data, I would like to 
+use your model to predict the median house value of my samples. The dataset 
+features are: {feature_names}, all standardized with z-scores. By considering 
+how each feature might relate to {unique_targets} and its positive or negative 
+correlation with the {unique_targets} outcome, I need you to provide the mean 
+and standard deviation for a normal distribution prior for each feature for a 
+linear regression model for predicting median house prices in California in 1990 
+from census data. Please reply with a JSON object where 
+feature names are keys, and the values are nested dictionaries containing mean 
+and standard deviation. Positive means indicate positive correlations, negative 
+means indicate negative correlations, and small standard deviations show 
+confidence in your guess. Respond with a JSON only, no text.
+
+
+As a data scientist, I have a dataset and the task predicting 
+median house prices in California in 1990 from census data. I want to use 
+your model to predict the median house value for my samples. The dataset includes 
+features: {feature_names}, standardized using z-scores. Considering the relationship 
+of each feature to {unique_targets} and its correlation (positive or negative) with 
+the {unique_targets} outcome, I need you to estimate the mean and standard deviation 
+for a normal distribution prior for each feature for a linear regression model for 
+predicting median house prices in California in 1990 from census data. Please reply 
+with a JSON object with feature names as keys and 
+nested dictionaries of mean and standard deviation as values. Positive means show 
+positive correlations, negative means show negative correlations, and small 
+standard deviations indicate confidence. Only respond with a JSON, no additional text.
+
+
+I'm a data scientist working on predicting median house prices in 
+California in 1990 from census data with a dataset. I aim to use your 
+model to predict the median house value of my samples. My dataset consists of 
+the following features: {feature_names}, all standardized with z-scores. 
+Considering how each feature might be related to {unique_targets} and its positive 
+or negative correlation with the {unique_targets} outcome, please guess the mean 
+and standard deviation for a normal distribution prior for each feature for a 
+linear regression model for predicting median house prices in California in 1990 
+from census data. Respond with a JSON object containing 
+feature names as keys and nested dictionaries of mean and standard deviation 
+as values. Positive means show positive correlation, negative means show negative 
+correlation, and small standard deviations indicate confidence. Provide only a 
+JSON, no other text.
+
+
+As a data scientist, I have a dataset for the task predicting 
+median house prices in California in 1990 from census data. I want to use 
+your model to predict the median house value of my samples. The dataset 
+includes these features: {feature_names}, all standardized using z-scores. By 
+considering how each feature might relate to {unique_targets} and its correlation 
+(positive or negative) with {unique_targets} outcome, I need you to estimate the 
+mean and standard deviation for a normal distribution prior for each feature for 
+a linear regression model for predicting median house prices in California in 1990 
+from census data. Please respond with a JSON object 
+with feature names as keys and nested dictionaries of mean and standard deviation 
+as values. Positive means indicate positive correlation, negative means indicate 
+negative correlation, and small standard deviations show confidence in your guess. 
+Reply with a JSON only, no text.
+
+
+I am a data scientist working on predicting median house prices in 
+California in 1990 from census data and have a dataset. I want to use 
+your model to predict the median house value of my samples. The dataset features 
+include: {feature_names}, standardized using z-scores. Considering how each 
+feature might relate to {unique_targets} and its correlation (positive or negative) 
+with the {unique_targets} outcome, I need your guess on the mean and standard 
+deviation for a normal distribution prior for each feature for a linear regression 
+model for predicting median house prices in California in 1990 from census data. 
+Please reply with a JSON object with feature names as 
+keys and nested dictionaries of mean and standard deviation as values. Positive 
+means show positive correlations, negative means show negative correlations, 
+and small standard deviations indicate confidence. Provide only a JSON, no other text.
+
+
+As a data scientist with a dataset, my task is predicting median 
+house prices in California in 1990 from census data. I want to use your 
+model to predict the median house value of my samples. The dataset consists of 
+features: {feature_names}, standardized using z-scores. Considering the 
+relationship between each feature and {unique_targets}, and whether the correlation 
+with the {unique_targets} outcome is positive or negative, I need you to estimate 
+the mean and standard deviation for a normal distribution prior for each feature 
+for a linear regression model for predicting median house prices in California in 
+1990 from census data. Please respond with a JSON object, 
+with feature names as keys and nested dictionaries of mean and standard deviation 
+as values. Positive means indicate positive correlation, negative means indicate 
+negative correlation, and small standard deviations show confidence in your guess. 
+Reply with only a JSON, no additional text.
+
+
+As a data scientist working on the task predicting median house 
+prices in California in 1990 from census data, I have a dataset that I want 
+to use with your model to predict the median house value of my samples. The dataset 
+features are: {feature_names}, standardized using z-scores. Considering how each 
+feature might relate to {unique_targets} and whether the correlation with the 
+{unique_targets} outcome is positive or negative, please estimate the mean and 
+standard deviation for a normal distribution prior for each feature for a linear 
+regression model for predicting median house prices in California in 1990 from census 
+data. Respond with a JSON object where feature names 
+are keys and the values are nested dictionaries containing mean and standard deviation. 
+Positive means show positive correlations, negative means show negative correlations, 
+and small standard deviations indicate confidence. Reply with a JSON only, no text.
+
+
+As a data scientist, I have a dataset and the task predicting 
+median house prices in California in 1990 from census data. I would like to 
+use your model to predict the median house value of my samples. My dataset includes 
+these features: {feature_names}, standardized with z-scores. Considering the 
+relationship between each feature and {unique_targets} and its correlation 
+(positive or negative) with the {unique_targets} outcome, I need you to guess 
+the mean and standard deviation for a normal distribution prior for each feature 
+for a linear regression model for predicting median house prices in 
+California in 1990 from census data. Please reply with a JSON object 
+containing the feature names as keys and nested dictionaries with mean and standard 
+deviation as values. Positive means indicate positive correlation, negative means 
+indicate negative correlation, and small standard deviations indicate confidence. 
+Provide only a JSON, no other text.

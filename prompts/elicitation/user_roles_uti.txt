@@ -1,0 +1,130 @@
+
+I am a data scientist with a dataset and the task: predicting a urinary tract infection diagnosis from sensors around the home. 
+I would like to use your model to predict the diagnosis of my samples.
+I have a dataset that is made up of the following features:
+{feature_names}.
+All of the feature values are standardized using the z-score.
+By thinking about how each feature might be related to a diagnosis of 
+{unique_targets}, 
+and whether each feature is positively or negatively correlated with the 
+outcome of
+{target_map},
+I would like you to guess the 
+mean and standard deviation for a normal distribution prior for each feature
+for a logistic regression model can be used for
+predicting a urinary tract infection diagnosis from sensors around the home.
+Please respond with a JSON object with the feature names as keys 
+and a nested dictionary of mean and standard deviation as values.
+A positive mean indicates a positive correlation with the outcome,
+a negative mean indicates a negative correlation with the outcome,
+whilst a small standard deviation indicates that you are confident in your guess.
+Please only respond with a JSON, no other text.
+
+
+I am a data scientist working on predicting a urinary tract infection diagnosis from sensors around the home using a specific dataset. 
+I seek to leverage your model for diagnosing my samples. The dataset comprises 
+the following features: {feature_names}. All feature values are standardized 
+with z-scores. By considering how each feature correlates with the diagnosis 
+of {unique_targets} and the direction of correlation as indicated in {target_map}, 
+please estimate the mean and standard deviation for a normal distribution prior 
+for each feature suitable for a logistic regression model for predicting a urinary tract infection diagnosis from sensors around the home. Provide 
+your response in JSON format with feature names as keys and a nested dictionary 
+of mean and standard deviation as values. A positive mean signifies a positive 
+correlation, a negative mean a negative correlation, and a small standard 
+deviation indicates high confidence in your estimate. Only respond with the 
+JSON object, without additional text.
+
+
+As a data scientist with a dataset for predicting a urinary tract infection diagnosis from sensors around the home, I wish to use your model 
+to predict diagnoses for my samples. My dataset includes the following 
+features: {feature_names}, all standardized using z-scores. Considering how 
+each feature might relate to the diagnosis of {unique_targets} and the correlation 
+direction provided in {target_map}, I need you to guess the mean and standard 
+deviation for a normal distribution prior for each feature to be used in a 
+logistic regression model for predicting a urinary tract infection diagnosis from sensors around the home. Please reply with a JSON object 
+containing feature names as keys and nested dictionaries of mean and standard 
+deviation as values. A positive mean indicates positive correlation, a negative 
+mean indicates negative correlation, and a small standard deviation shows 
+confidence in your guess. Please respond with JSON only.
+
+
+As a data scientist with a dataset for predicting a urinary tract infection diagnosis from sensors around the home, I want to use your 
+model to predict the diagnoses for my samples. The dataset includes 
+features: {feature_names}, standardized using the z-score. Considering 
+the relationship of each feature to the diagnosis of {unique_targets} and the 
+correlation direction in {target_map}, please estimate the mean and standard 
+deviation for a normal distribution prior for each feature for a logistic 
+regression model for predicting a urinary tract infection diagnosis from sensors around the home. Respond in JSON format with feature names as 
+keys and a nested dictionary of mean and standard deviation as values. A positive 
+mean means a positive correlation, a negative mean means a negative correlation, 
+and a small standard deviation indicates confidence. Only respond with JSON.
+
+
+I am a data scientist with a task: predicting a urinary tract infection diagnosis from sensors around the home and a dataset. I want to 
+use your model to predict sample diagnoses. My dataset contains these 
+features: {feature_names}, all standardized with z-scores. Based on how 
+each feature relates to the diagnosis of {unique_targets} and their correlation 
+direction in {target_map}, please estimate the mean and standard deviation for a 
+normal distribution prior for each feature for a logistic regression model for 
+predicting a urinary tract infection diagnosis from sensors around the home. Provide your response as a JSON object with feature names as keys 
+and a nested dictionary of mean and standard deviation as values. Positive means 
+indicate positive correlation, negative means indicate negative correlation, and 
+small standard deviations indicate confidence. Respond with JSON only.
+
+
+I am a data scientist with a dataset and the task: predicting a urinary tract infection diagnosis from sensors around the home. I aim to use your 
+model to predict sample diagnoses. My dataset includes these features: {feature_names}, 
+standardized using z-scores. Considering the correlation of each feature to the diagnosis 
+of {unique_targets} and the correlation direction in {target_map}, please guess the 
+mean and standard deviation for a normal distribution prior for each feature for a 
+logistic regression model for predicting a urinary tract infection diagnosis from sensors around the home. Please reply in JSON format, with feature 
+names as keys and a nested dictionary of mean and standard deviation as values. 
+Positive means indicate positive correlation, negative means indicate negative 
+correlation, and small standard deviations indicate confidence. Respond with 
+JSON only.
+
+
+As a data scientist, I have a dataset for predicting a urinary tract infection diagnosis from sensors around the home and seek to use your 
+model to predict diagnoses for my samples. The dataset consists of features: 
+{feature_names}, standardized with z-scores. Considering the relation of each 
+feature to the diagnosis of {unique_targets} and their correlation direction 
+in {target_map}, please estimate the mean and standard deviation for a normal 
+distribution prior for each feature in a logistic regression model for predicting a urinary tract infection diagnosis from sensors around the home. 
+Respond with a JSON object where feature names are keys and nested dictionaries 
+contain mean and standard deviation. Positive means show positive correlation, negative 
+means show negative correlation, and small standard deviations show confidence. Only 
+respond with JSON.
+
+
+I am a data scientist with the task: predicting a urinary tract infection diagnosis from sensors around the home and a dataset. I wish to utilize 
+your model to predict diagnoses for my samples. The dataset comprises these features: 
+{feature_names}, all standardized using z-scores. By considering each feature's 
+relation to the diagnosis of {unique_targets} and the direction of correlation in 
+{target_map}, estimate the mean and standard deviation for a normal distribution 
+prior for each feature in a logistic regression model for predicting a urinary tract infection diagnosis from sensors around the home. Provide a 
+JSON response with feature names as keys and nested dictionaries of mean and standard 
+deviation as values. Positive means indicate positive correlation, negative means 
+indicate negative correlation, and small standard deviations indicate confidence. 
+Respond with JSON only.
+
+
+As a data scientist tasked with predicting a urinary tract infection diagnosis from sensors around the home, I have a dataset and would like to 
+use your model to predict diagnoses. The dataset includes the following features: 
+{feature_names}, standardized using z-scores. Considering the relationship of each 
+feature to the diagnosis of {unique_targets} and their correlation in {target_map}, 
+please estimate the mean and standard deviation for a normal distribution prior for
+each feature in a logistic regression model for predicting a urinary tract infection diagnosis from sensors around the home. Provide a JSON object 
+with feature names as keys and nested dictionaries of mean and standard deviation. 
+Positive means show positive correlation, negative means show negative correlation, 
+and small standard deviations indicate confidence. Respond with JSON only.
+
+
+I am a data scientist working on predicting a urinary tract infection diagnosis from sensors around the home with a dataset. I intend to use your 
+model to predict diagnoses for my samples. The dataset features are: {feature_names}, 
+standardized using z-scores. Considering how each feature might relate to the diagnosis 
+of {unique_targets} and their correlation direction in {target_map}, estimate the mean 
+and standard deviation for a normal distribution prior for each feature in a logistic 
+regression model for predicting a urinary tract infection diagnosis from sensors around the home. Please respond with a JSON object with feature names 
+as keys and nested dictionaries of mean and standard deviation. Positive means indicate 
+positive correlation, negative means indicate negative correlation, and small standard 
+deviations indicate confidence. Only respond with JSON.

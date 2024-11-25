@@ -1,0 +1,49 @@
+
+Please provide the probabilities of malignant as a list of numbers 
+between 0 and 1, not including 0 or 1.
+Do not return any other text, just the list of numbers. 
+If you're unsure please guess.
+
+
+Provide the probabilities of malignancy as a list of numbers between 0 and 1, 
+excluding 0 and 1. Return only the list of numbers with no additional text. 
+If uncertain, make a guess.
+
+
+Please list the probabilities of malignant cases as numbers between 0 and 1, 
+not including 0 or 1. Return only this list of numbers without any other text. 
+If unsure, guess.
+
+
+Supply the probabilities of malignancy in a list of numbers between 0 and 1, 
+excluding 0 and 1. Return just the list, with no extra text. If uncertain, 
+please guess.
+
+
+Provide a list of numbers representing the probabilities of malignancy, each 
+between 0 and 1, not including 0 or 1. Return only this list with no additional 
+text. If you are unsure, please guess.
+
+
+Return the probabilities of malignancy as a list of numbers between 0 and 1, 
+excluding 0 and 1. Do not include any other text, just the list. If unsure, 
+make a guess.
+
+
+Please give the probabilities of malignant as a list of numbers between 0 and 1, 
+not including 0 or 1. Only return this list of numbers, without any other text. 
+If uncertain, guess.
+
+
+List the probabilities of malignancy as numbers between 0 and 1, excluding 0 and 1. 
+Only return the list of numbers with no other text. If unsure, make your best guess.
+
+
+Provide the probabilities of malignancy as a list of numbers that fall between 
+0 and 1, excluding 0 and 1. Only return the list, without additional text. If 
+unsure, guess.
+
+
+Supply a list of numbers representing the probabilities of malignant cases, 
+each between 0 and 1, excluding 0 and 1. Return only this list with no other text. 
+If you are unsure, please guess.

@@ -1,0 +1,51 @@
+
+Please provide the probabilities of a positive UTI diagnosis 
+as a list of numbers between 0 and 1, not including 0 or 1.
+Do not return any other text, just the list of numbers. 
+If you're unsure please guess.
+
+
+Provide the probabilities of a positive UTI diagnosis as a list 
+of numbers between 0 and 1, excluding 0 and 1. Do not include 
+any additional text, just the list of numbers. If uncertain, 
+please estimate.
+
+
+Could you supply the probabilities of a positive UTI diagnosis as a 
+series of numbers between 0 and 1, omitting 0 and 1? Return only the 
+list of numbers. If unsure, make an educated guess.
+
+
+Kindly give the probabilities of a positive UTI diagnosis in a list 
+of numbers ranging from 0 to 1, not including the endpoints. Only the 
+list of numbers should be returned. If uncertain, please approximate.
+
+
+Please list the probabilities of a positive UTI diagnosis as numbers 
+between 0 and 1, excluding the extremes. Only return the list of numbers. 
+If you're unsure, make a guess.
+
+
+Provide a list of probabilities for a positive UTI diagnosis with 
+values between 0 and 1, excluding 0 and 1. Do not add any extra text, 
+only the list of numbers. If uncertain, please guess.
+
+
+Please share the probabilities of a positive UTI diagnosis as a 
+series of numbers between 0 and 1, excluding the endpoints. Return just 
+the list of numbers. If you're not sure, take a guess.
+
+
+Could you provide the probabilities for a positive UTI diagnosis as 
+numbers between 0 and 1, not including 0 or 1? Return only the list of 
+numbers. If uncertain, please estimate.
+
+
+Please supply the probabilities of a positive UTI diagnosis as a 
+list of numbers ranging from 0 to 1, without including the extremes. 
+Return just the list of numbers. If unsure, make a guess.
+
+
+Kindly provide the probabilities for a positive UTI diagnosis as a 
+list of numbers between 0 and 1, omitting 0 and 1. Only return the list 
+of numbers. If you're unsure, please approximate.

@@ -1,0 +1,61 @@
+
+You are a simulator of a linear regression predictive model.
+Here the inputs are social and geographical data, and the output is 
+the median house value in $100k in 1990. 
+With your best guess, please provide the median house value of a block
+in $100k in 1990 based on the social and geographical information given. 
+Think like a bayesian.
+
+
+You act as a linear regression prediction model. Using social and 
+geographical data as inputs, estimate the median house value in increments 
+of $100k in 1990. Please provide your best estimate of the median house value for 
+a block based on the given social and geographical information, 
+approaching it from a Bayesian perspective.
+
+
+Imagine you're a linear regression simulator. The inputs consist of 
+social and geographical data, and the output is the median house value 
+in $100k in 1990 units. Given the social and geographical information provided, 
+what is your Bayesian estimate for the median house value of a block?
+
+
+You simulate a linear regression model. Input the social and geographical 
+data, and output the median house value in $100k in 1990. Based on the given data,
+please estimate the median house value of a block using a Bayesian approach.
+
+
+As a simulator of a linear regression model, you receive social and 
+geographical data as inputs, outputting the median house value in $100k in 1990. 
+With the provided information, use your Bayesian reasoning to estimate 
+the median house value of a block.
+
+
+Picture yourself as a linear regression model simulator. The inputs are 
+social and geographical data, with the output being the median house value 
+in $100k in 1990 units. Please provide your Bayesian estimate of the median house 
+value for a block based on the given data.
+
+
+You function as a linear regression prediction model. With social and 
+geographical data as your inputs, and median house value in $100k in 1990 as your 
+output, use Bayesian thinking to estimate the median house value of a 
+block from the provided information.
+
+
+Acting as a simulator for a linear regression model, you take in social 
+and geographical data as inputs and output the median house value in $100k in 1990. 
+Based on the information provided, what is your Bayesian estimate for the
+median house value of a block?
+
+
+Envision yourself as a linear regression model simulator. Input the social 
+and geographical data, and output the median house value in $100k in 1990 units. 
+Use Bayesian inference to estimate the median house value of a block given 
+the provided data.
+
+
+You simulate a linear regression predictive model. Using social and 
+geographical data as inputs, and the median house value in $100k in 1990 as the 
+output, apply Bayesian thinking to provide an estimate of the median 
+house value for a block based on the given information.

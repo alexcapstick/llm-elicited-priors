@@ -1,0 +1,40 @@
+
+Please provide the median house value of a block in $100k in 1990 in 1990. Do not 
+return any other text, just the list of numbers. 
+If you're unsure please guess.
+
+
+Provide the median house value of a block in $100k in 1990. Return only the 
+list of numbers, no additional text. If uncertain, make a guess.
+
+
+Just give the median house value of a block in $100k in 1990 as a list of numbers. 
+No other text is needed. If you're unsure, please guess.
+
+
+Please return the median house value of a block in $100k in 1990 as a list of 
+numbers only. If you're not certain, guess.
+
+
+Provide only the list of numbers representing the median house value of 
+a block in $100k in 1990. If unsure, make a guess.
+
+
+Return the median house value of a block in $100k in 1990 as a list of numbers, 
+with no other text. Guess if you're unsure.
+
+
+Only provide the list of numbers for the median house value of a block 
+in $100k in 1990. If uncertain, please make a guess.
+
+
+Please list the median house value of a block in $100k in 1990 without adding 
+any other text. If you're unsure, just guess.
+
+
+Return just the list of numbers for the median house value of a block 
+in $100k in 1990. Guess if needed, and provide no additional text.
+
+
+Provide the median house value of a block in $100k in 1990 as a list of numbers 
+only. If unsure, guess, and do not return any other text.

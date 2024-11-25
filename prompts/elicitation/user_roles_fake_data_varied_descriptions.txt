@@ -1,0 +1,164 @@
+
+I am a data scientist with a dataset and the task: 
+predicting a target given some feature values.
+I would like to use your model to predict the target value of my samples.
+I have a dataset that is made up of the following features:
+{feature_names}.
+All of the feature values are standardized using the z-score.
+Here we know the relationship is: 
+{mutable_description}
+By thinking about how each feature is be related to {unique_targets}, 
+and whether each feature is positively or negatively correlated with the 
+outcome of
+{unique_targets},
+I would like you to guess the 
+mean and standard deviation for a normal distribution prior for each feature
+for a linear regression model can be used for
+predicting the target from the feature values.
+Please respond with a JSON object with the feature names as keys 
+and a nested dictionary of mean and standard deviation as values.
+A positive mean indicates a positive correlation with the outcome,
+a negative mean indicates a negative correlation with the outcome,
+whilst a small standard deviation indicates that you are confident in your guess.
+Please only respond with a JSON, no other text.
+
+
+I’m a data scientist working on a dataset with the task of 
+predicting a target using feature values. I want to apply your 
+model to estimate the target for my samples. My dataset includes 
+the following features: {feature_names}. All feature values are 
+standardized using z-scores. The relationship we know is: 
+{mutable_description}. 
+Based on how each feature correlates with {unique_targets}, either 
+positively or negatively, please estimate the mean and standard 
+deviation for a normal distribution prior for each feature. This 
+will allow us to create a linear regression model to predict the 
+target from the features. Provide the output as a JSON object where 
+the feature names are the keys, and each key has a nested dictionary 
+of mean and standard deviation as values. A positive mean suggests 
+a positive correlation with the outcome, and a negative mean implies 
+a negative correlation, while a small standard deviation reflects 
+confidence in your estimate. Only respond with JSON, please.
+
+
+I am a data scientist working with a dataset for a prediction task using 
+feature values to predict a target. I would like to apply your model to 
+predict the target for my samples. My dataset consists of these 
+features: {feature_names}. All the values have been standardized 
+using z-scores. The known relationship is: 
+{mutable_description}. 
+Based on the correlation between each feature and {unique_targets}, 
+whether positive or negative, please guess the mean and standard 
+deviation for a normal distribution prior for each feature. I need 
+this for creating a linear regression model to predict the target. 
+Provide your response as a JSON object with the feature names as keys, 
+each containing a nested dictionary for the mean and standard deviation. 
+A positive mean suggests positive correlation with the outcome, negative 
+for negative correlation, and a smaller standard deviation indicates 
+higher confidence. Only respond with JSON.
+
+
+As a data scientist, I’m working on a prediction task where I need to 
+predict a target using feature values. I would like to use your model 
+to predict the target for my samples. The dataset contains these features: 
+{feature_names}, all standardized by the z-score. The known relationship is: 
+{mutable_description}. Please guess 
+the mean and standard deviation for a normal distribution prior for each 
+feature, considering their positive or negative correlation with {unique_targets}. 
+I want to use this information to build a linear regression model for target 
+prediction. Respond with a JSON object where the feature names are the keys, 
+and the nested values are dictionaries with mean and standard deviation. 
+A positive mean shows a positive correlation, negative shows negative 
+correlation, and a small standard deviation indicates confidence in your 
+guess. Please provide only a JSON object.
+
+
+I’m a data scientist working on a dataset where I need to predict a target 
+from feature values. I want to use your model to predict the target values 
+for my samples. The dataset includes {feature_names}, with all features 
+standardized using z-scores. The known relationship is: 
+{mutable_description}. 
+Based on each feature’s correlation with {unique_targets}, positive or 
+negative, please estimate the mean and standard deviation for a normal 
+distribution prior for each feature. This will be used in a linear 
+regression model for prediction. Please respond with a JSON object where 
+the feature names are keys, each with a dictionary of mean and standard 
+deviation. A positive mean indicates positive correlation with the outcome, 
+and negative mean for negative correlation, with a small standard deviation 
+showing confidence in your guess. Respond only with JSON.
+
+
+As a data scientist, I have a dataset where my task is to predict a target 
+using feature values. I would like to use your model to predict the target 
+values for my samples. The dataset is comprised of {feature_names}, all 
+standardized via z-scores. We know the relationship: 
+{mutable_description}. 
+Consider the correlations, whether positive or negative, between each 
+feature and {unique_targets}, and provide a guess for the mean and 
+standard deviation for a normal distribution prior for each feature. 
+I’ll use this in a linear regression model to predict the target. 
+Respond with a JSON object that has the feature names as keys, each 
+containing a dictionary with mean and standard deviation. Positive mean 
+for positive correlation, negative mean for negative correlation, and 
+smaller standard deviations indicating greater confidence. 
+Only respond in JSON format.
+
+
+I’m working on a dataset as a data scientist, with the task of predicting 
+a target from feature values. I’d like to apply your model to predict 
+target values for my data. My dataset consists of {feature_names}, 
+with all features standardized using z-scores. The known relationship is: 
+{mutable_description}. Consider 
+the positive or negative correlations between each feature and 
+{unique_targets} to estimate a mean and standard deviation for a 
+normal distribution prior for each feature. This will help build a 
+linear regression model to predict the target. Provide the result as a 
+JSON object, with the feature names as keys, each associated with a 
+nested dictionary containing mean and standard deviation. Positive mean 
+indicates a positive correlation, negative mean indicates a negative one, 
+and a smaller standard deviation implies more confidence. 
+Respond only with JSON.
+
+
+As a data scientist, my task involves predicting a target variable from 
+feature values in a dataset. I want to use your model to predict the target 
+for my samples. My dataset consists of {feature_names}, with all values 
+standardized via z-score. The relationship we know is: 
+{mutable_description}. Based on 
+the correlation between each feature and {unique_targets}, whether positive 
+or negative, estimate a mean and standard deviation for a normal 
+distribution prior for each feature. This will be used to create a linear 
+regression model for prediction. Please respond in JSON format, with 
+feature names as keys and each key containing a dictionary of mean and 
+standard deviation. Positive mean represents positive correlation, 
+negative for negative correlation, and small standard deviation shows 
+high confidence. Provide only JSON.
+
+
+I am working with a dataset as a data scientist, tasked with predicting a 
+target using feature values. I want to use your model to estimate the 
+target for my samples. The dataset contains the following features: 
+{feature_names}, standardized using the z-score. The known relationship 
+is: {mutable_description}. 
+Please guess the mean and standard deviation for a normal distribution 
+prior for each feature, considering whether they are positively or 
+negatively correlated with {unique_targets}. This will help create a 
+linear regression model for prediction. Provide a JSON object with 
+feature names as keys and a dictionary of mean and standard deviation 
+as values. Positive mean indicates positive correlation, negative mean 
+indicates negative correlation, and smaller standard deviations suggest 
+confidence. Only respond with a JSON object.
+
+
+As a data scientist, my task is to predict a target from feature values. 
+I’d like to use your model to estimate the target values for my samples. 
+The dataset consists of {feature_names}, with all features standardized 
+using z-scores. The known relationship is: 
+{mutable_description}. 
+Please estimate a mean and standard deviation for a normal distribution 
+prior for each feature, based on how they relate to {unique_targets}. 
+I’ll use these in a linear regression model. Provide a JSON object 
+where each feature name is a key, and the values are dictionaries of 
+mean and standard deviation. Positive means indicate positive 
+correlations, negative for negative correlations, and smaller 
+standard deviations show confidence. Only respond in JSON format.

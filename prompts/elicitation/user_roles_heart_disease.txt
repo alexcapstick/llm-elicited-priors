@@ -1,0 +1,150 @@
+
+I am a data scientist with a dataset and the task: predicting heart 
+disease diagnosis from physiological characteristics. 
+I would like to use your model to predict the diagnosis of my samples.
+I have a dataset that is made up of the following features:
+{feature_names}.
+All of the feature values are standardized using the z-score, except those with
+the values given in their description.
+By thinking about how each feature might be related to a diagnosis of 
+{unique_targets}, 
+and whether each feature is positively or negatively correlated with the 
+outcome of
+{target_map},
+I would like you to guess the 
+mean and standard deviation for a normal distribution prior for each feature
+for a logistic regression model can be used for
+predicting heart disease diagnosis from physiological characteristics.
+Please respond with a JSON object with the feature names as keys 
+and a nested dictionary of mean and standard deviation as values.
+A positive mean indicates a positive correlation with the outcome,
+a negative mean indicates a negative correlation with the outcome,
+whilst a small standard deviation indicates that you are confident in your guess.
+Please only respond with a JSON, no other text. 
+
+
+I am a data scientist working with a dataset to predict heart disease 
+diagnosis based on physiological characteristics. I want to use your 
+model to predict the diagnoses for my samples. My dataset includes the 
+following features: {feature_names}. All feature values are standardized 
+using the z-score, except where otherwise noted. Considering how each 
+feature might relate to a diagnosis of {unique_targets}, and whether each 
+feature is positively or negatively correlated with the outcome of {target_map}, 
+please guess the mean and standard deviation for a normal distribution prior 
+for each feature in a logistic regression model used for predicting heart 
+disease diagnosis. Please respond with a JSON object where feature names are 
+keys, and each key maps to a nested dictionary containing the mean and standard 
+deviation. A positive mean indicates a positive correlation with the outcome, 
+a negative mean indicates a negative correlation, and a small standard deviation 
+indicates confidence in your guess. Only respond with the JSON, no other text.
+
+
+As a data scientist, I have a dataset and a task: predicting heart disease 
+diagnosis from physiological characteristics. I seek to use your model for 
+predicting the diagnosis of my samples. The dataset comprises the following 
+features: {feature_names}, with all values standardized using the z-score, 
+except for those specified. By evaluating the relationship of each feature 
+to a diagnosis of {unique_targets} and their correlation (positive or negative) 
+with {target_map}, please estimate the mean and standard deviation for a 
+normal distribution prior for each feature in a logistic regression model. 
+Please provide a JSON object with feature names as keys and nested dictionaries 
+of mean and standard deviation as values. Positive means indicate positive 
+correlation with the outcome, negative means indicate negative correlation, 
+and small standard deviations indicate high confidence. Respond only 
+with JSON, no other text. 
+
+
+I am a data scientist tasked with predicting heart disease diagnosis using 
+physiological characteristics in my dataset. I want to leverage your model 
+for my sample predictions. The dataset includes the following features: 
+{feature_names}, standardized using the z-score unless otherwise noted. Based 
+on how each feature may relate to a diagnosis of {unique_targets} and their 
+correlation with {target_map}, please provide the mean and standard deviation 
+for a normal distribution prior for each feature in a logistic regression model. 
+Your response should be a JSON object with feature names as keys and nested 
+dictionaries of mean and standard deviation as values. Positive means denote 
+positive correlation, negative means denote negative correlation, and small 
+standard deviations denote high confidence. Only reply with JSON, no other text. 
+
+
+As a data scientist, I have a dataset for predicting heart disease diagnosis 
+from physiological characteristics. I wish to use your model for predicting 
+my samples' diagnoses. My dataset includes these features: {feature_names}, 
+standardized with z-scores, except as noted. Considering the relationship 
+between each feature and a diagnosis of {unique_targets}, and their correlation 
+with {target_map}, please estimate the mean and standard deviation for a normal 
+distribution prior for each feature in a logistic regression model. Provide a 
+JSON object where feature names are keys, with nested dictionaries for mean 
+and standard deviation as values. Positive means indicate positive correlation 
+with the outcome, negative means indicate negative correlation, and small 
+standard deviations indicate high confidence. Only respond with JSON, no other 
+text. 
+
+
+As a data scientist, my task is to predict heart disease diagnosis from 
+physiological characteristics using my dataset. I want to apply your model 
+for predicting the diagnosis of my samples. My dataset features include: 
+{feature_names}, all standardized using z-scores, unless stated otherwise. 
+By understanding the relationship of each feature to a diagnosis of {unique_targets} 
+and their correlation with {target_map}, please provide the mean and standard 
+deviation for a normal distribution prior for each feature in a logistic 
+regression model. Respond with a JSON object containing feature names as keys 
+and nested dictionaries for mean and standard deviation. Positive means 
+indicate positive correlation, negative means indicate negative correlation, 
+and small standard deviations indicate high confidence. Only respond with JSON, 
+no other text. 
+
+
+I am a data scientist with a dataset aimed at predicting heart disease diagnosis 
+from physiological characteristics. I would like to use your model to predict 
+the diagnosis of my samples. The dataset consists of the following features: 
+{feature_names}, standardized using z-scores, except where otherwise indicated. 
+Considering how each feature may relate to a diagnosis of {unique_targets}, 
+and their correlation with {target_map}, please provide the mean and standard 
+deviation for a normal distribution prior for each feature in a logistic 
+regression model. Provide a JSON object with feature names as keys and nested 
+dictionaries of mean and standard deviation as values. Positive means indicate 
+positive correlation, negative means indicate negative correlation, and small 
+standard deviations indicate high confidence. Only respond with JSON, no other 
+text. 
+
+
+As a data scientist, my goal is to predict heart disease diagnosis from 
+physiological characteristics using my dataset. I would like to employ 
+your model for predicting the diagnosis of my samples. The dataset includes 
+the following features: {feature_names}, standardized using the z-score, except 
+as described. By assessing how each feature might relate to a diagnosis of 
+{unique_targets}, and their correlation with {target_map}, please estimate 
+the mean and standard deviation for a normal distribution prior for each 
+feature in a logistic regression model. Respond with a JSON object where 
+feature names are keys, and nested dictionaries for mean and standard deviation 
+are the values. Positive means indicate positive correlation with the outcome, 
+negative means indicate negative correlation, and small standard deviations 
+indicate high confidence. Only respond with JSON, no other text. 
+
+
+As a data scientist working on predicting heart disease diagnosis from physiological 
+characteristics, I have a dataset for which I would like to use your model to 
+predict diagnoses. The dataset includes the following features: {feature_names}, 
+standardized using z-scores unless otherwise noted. Based on the relationship 
+between each feature and a diagnosis of {unique_targets}, and their correlation 
+with {target_map}, please provide the mean and standard deviation for a normal 
+distribution prior for each feature in a logistic regression model. Provide a 
+JSON object where feature names are keys, with nested dictionaries for mean and 
+standard deviation as values. Positive means indicate positive correlation, 
+negative means indicate negative correlation, and small standard deviations 
+indicate high confidence. Only respond with JSON, no other text. 
+
+
+As a data scientist, my task is to predict heart disease diagnosis using 
+physiological characteristics in my dataset. I aim to use your model for 
+predicting the diagnosis of my samples. My dataset includes the following 
+features: {feature_names}, with all values standardized using z-scores except 
+where otherwise specified. Considering the relationship of each feature to a 
+diagnosis of {unique_targets} and their correlation with {target_map}, please 
+estimate the mean and standard deviation for a normal distribution prior for 
+each feature in a logistic regression model. Respond with a JSON object 
+containing feature names as keys and nested dictionaries of mean and standard 
+deviation as values. Positive means indicate positive correlation with the 
+outcome, negative means indicate negative correlation, and small standard 
+deviations indicate high confidence. Only respond with JSON, no other text. 

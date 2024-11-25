@@ -1,0 +1,57 @@
+
+Please provide the target using:
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Do not 
+return any other text, just the list of numbers. 
+If you're unsure please guess.
+
+Calculate the target using: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Provide only the list of numbers. If uncertain, 
+make your best guess.
+
+
+Use the formula: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2' 
+to determine the target. Return only the numbers in the list. 
+If you're unsure, please estimate.
+
+
+Please compute the target as: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Respond with just the list of numbers. 
+If needed, make an educated guess.
+
+
+Derive the target using the formula: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Provide only the list of numbers. 
+Guess if necessary.
+
+
+Using the relationship: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2', 
+output only the list of numbers. If you're unsure, 
+provide your best guess.
+
+
+Compute the target with: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Return only the list of numbers. If unsure, make a guess.
+
+
+Please use this equation to compute the target: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Provide only the list of numbers, 
+and if uncertain, give your best estimate.
+
+
+Find the target using: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Provide the list of numbers only. 
+If you're unsure, estimate.
+
+
+Calculate the target from: 
+'target' = 2 * 'feature 0' - 1 * 'feature 1' + 1 * 'feature 2'. 
+Return only the numbers. If in doubt, guess.

@@ -1,0 +1,51 @@
+
+Please provide the probabilities of heart disease as a list of numbers 
+between 0 and 1, not including 0 or 1.
+Do not return any other text, just the list of numbers. 
+If you're unsure please guess.
+
+
+Provide the probabilities of heart disease as a list of numbers 
+ranging from 0 to 1, excluding 0 and 1. Do not include any other 
+text, only the list of numbers. If uncertain, please make an 
+educated guess.
+
+
+Supply the probabilities of heart disease as a series of numbers 
+between 0 and 1, excluding the values 0 and 1. Return only the list 
+of numbers, with no additional text. If you are unsure, please guess.
+
+
+Provide heart disease probabilities as a list of numbers from 0 to 1, 
+not including 0 or 1. Return solely the list of numbers, without any 
+extra text. If you are unsure, make your best guess.
+
+
+Return the probabilities of heart disease as a sequence of numbers 
+between 0 and 1, excluding the endpoints 0 and 1. Include only the 
+list of numbers, with no additional text. If uncertain, please estimate.
+
+
+List the probabilities of heart disease as numbers between 0 and 1, not 
+including 0 or 1. Do not return any text, only the list of numbers. 
+If unsure, provide your best guess.
+
+
+Provide the heart disease probabilities as numbers in a range from 0 to 1, 
+excluding 0 and 1. Return just the list of numbers, without any extra text. 
+If uncertain, please guess.
+
+
+Give the probabilities of heart disease as a list of numbers between 0 and 1, 
+excluding the values 0 and 1. Only return the list of numbers, with no 
+additional text. If unsure, guess.
+
+
+Supply the probabilities of heart disease as numbers within the range of 0 to 1, 
+excluding 0 and 1. Return only the list of numbers, without any other text. 
+If you are unsure, make a guess.
+
+
+Return the probabilities of heart disease as a list of numbers between 0 and 1, 
+not including the endpoints 0 or 1. Include no other text, only the list of 
+numbers. If unsure, please provide your best guess.

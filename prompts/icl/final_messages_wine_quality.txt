@@ -1,0 +1,51 @@
+
+Please provide the probabilities of the wine being good quality 
+as a list of numbers between 0 and 1, not including 0 or 1.
+Do not return any other text, just the list of numbers. 
+If you're unsure please guess.
+
+
+Provide the probabilities of the wine being good quality as a 
+list of numbers between 0 and 1, excluding 0 and 1. Return only 
+the list of numbers, no other text. If uncertain, make your best 
+guess.
+
+
+Please list the probabilities of the wine being of good quality 
+as numbers between 0 and 1, without including 0 or 1. Only return 
+the list of numbers, no additional text. Guess if you're unsure.
+
+
+Provide a list of probabilities for the wine being of good quality, 
+with each number between 0 and 1, excluding 0 and 1. Return just the 
+list of numbers, no extra text. Guess if uncertain.
+
+
+List the probabilities of the wine being good quality as numbers 
+between 0 and 1, excluding 0 and 1. Return only the list, with no 
+other text. If unsure, please guess.
+
+
+Provide the wine quality probabilities as a list of numbers between
+0 and 1, without including 0 or 1. Do not include any other text, 
+just the list of numbers. If uncertain, make a guess.
+
+
+Please return the probabilities of the wine being good quality as a 
+list of numbers between 0 and 1, not including 0 or 1. Only return 
+the list of numbers, with no other text. Guess if you're unsure.
+
+
+Provide a list of probabilities for the wine's good quality, with 
+values between 0 and 1, excluding 0 and 1. Return just the list of 
+numbers, no additional text. If uncertain, please guess.
+
+
+List the probabilities of the wine being of good quality as numbers 
+between 0 and 1, without including 0 or 1. Only return the list of 
+numbers, with no extra text. Guess if unsure.
+
+
+Provide the probabilities of the wine being of good quality as a 
+list of numbers between 0 and 1, excluding 0 and 1. Return only the 
+list of numbers, no other text. If uncertain, make your best guess.
