@@ -142,7 +142,7 @@ All of the results presented in the paper are saved within the `results` folder,
 
 These results are used to produce the figures and tables presented in the paper, which can be generated using the notebooks in the root directory.
 
-Note that when reproducing the experiments, the UTI dataset is private and cannot be shared. Therefore, some of the scripts and notebooks will error when trying to load the UTI dataset.
+Note that when reproducing the experiments, the UTI dataset is private and cannot be shared. Therefore, some of the scripts and notebooks will error when trying to load the UTI dataset. In these cases, simply run the experiments without the UTI dataset by using the `--dataset` flag in the scripts.
 
 ### Notebooks
 
