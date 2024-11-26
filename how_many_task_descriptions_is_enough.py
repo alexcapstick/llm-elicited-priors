@@ -8,8 +8,8 @@ import pymc as pm
 import pytensor.tensor as pt
 import scipy.stats as stats
 
-from my_code.metrics import energy_distance_chunked
-from my_code.utils import load_prompts
+from llm_elicited_priors.metrics import energy_distance_chunked
+from llm_elicited_priors.utils import load_prompts
 
 PROMPTS_DIR = "./prompts/elicitation"
 PRIORS_DIR = "./priors/elicitation"

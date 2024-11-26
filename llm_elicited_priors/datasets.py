@@ -126,7 +126,7 @@ def process_original_uti(uti_dataset_original_df: pd.DataFrame) -> pd.DataFrame:
     ## run the following code to process the original dataset:
 
     # import pandas as pd
-    # from my_code.datasets import process_original_uti
+    # from llm_elicited_priors.datasets import process_original_uti
 
     # process_original_uti(
     #     pd.read_parquet(

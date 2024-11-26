@@ -47,8 +47,8 @@ Our code was run using the torch version `2.5.1` and the transformers version `4
 To elicit priors from a language model given information about a dataset, you can primarily use the following functions:
 
 ```python
-from my_code.gpt import get_llm_elicitation
-from my_code.gpt import get_llm_elicitation_for_dataset
+from llm_elicited_priors.gpt import get_llm_elicitation
+from llm_elicited_priors.gpt import get_llm_elicitation_for_dataset
 ```
 
 
@@ -60,18 +60,18 @@ from my_code.gpt import get_llm_elicitation_for_dataset
 
 Many examples of system roles and user roles can be found in the `prompts/elicitation` folder. 
 The `get_llm_elicitation` function can be used to elicit priors for any of these roles, which can be adapted for any new task.
-These prompts can be loaded using the function `my_code.utils import load_prompts`.
+These prompts can be loaded using the function `llm_elicited_priors.utils import load_prompts`.
 
 To elicit prior distributions from the wine quality dataset using GPT-3.5 turbo, we can use the following code (also found in `example_dataset_elicitation.ipynb`):
 
 ```python
 # import the necessary functions and classes
-from my_code.utils import load_prompts
-from my_code.gpt import GPTOutputs, get_llm_elicitation_for_dataset
-from my_code.datasets import load_wine_quality
+from llm_elicited_priors.utils import load_prompts
+from llm_elicited_priors.gpt import GPTOutputs, get_llm_elicitation_for_dataset
+from llm_elicited_priors.datasets import load_wine_quality
 
 # wrapper for language models
-# see my_code.gpt for more details
+# see llm_elicited_priors.gpt for more details
 CLIENT_CLASS = GPTOutputs
 CLIENT_KWARGS = dict(
     temperature=0.1,
@@ -128,7 +128,7 @@ messages = [
 ]
 ```
 
-Please see `my_code.gpt.GPTOutputs`, `my_code.gpt.LlamaOutputs`, and `my_code.gpt.QwenOutputs` for examples of how to wrap different language models.
+Please see `llm_elicited_priors.gpt.GPTOutputs`, `llm_elicited_priors.gpt.LlamaOutputs`, and `llm_elicited_priors.gpt.QwenOutputs` for examples of how to wrap different language models.
 
 
 ## Reproducing the experiments

@@ -16,7 +16,7 @@ import jax
 import jax.numpy as jnp
 import blackjax
 
-from my_code.datasets import (
+from llm_elicited_priors.datasets import (
     load_fake_data,
     load_uti,
     load_breast_cancer,
@@ -25,7 +25,7 @@ from my_code.datasets import (
     load_heart_disease,
 )
 
-from my_code.mc import sample_posterior_from_prior_samples
+from llm_elicited_priors.mc import sample_posterior_from_prior_samples
 
 
 parser = argparse.ArgumentParser()

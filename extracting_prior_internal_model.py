@@ -7,8 +7,8 @@ import numpy as np
 import itertools
 from pathlib import Path
 
-from my_code.utils import make_list
-from my_code.datasets import (
+from llm_elicited_priors.utils import make_list
+from llm_elicited_priors.datasets import (
     load_fake_data,
     load_breast_cancer,
     load_uti,
@@ -16,7 +16,7 @@ from my_code.datasets import (
     load_heart_disease,
     load_wine_quality,
 )
-from my_code.gpt import (
+from llm_elicited_priors.gpt import (
     sample_approximate_llm_internal_predictive_model_parameters,
     GPTOutputs,
 )

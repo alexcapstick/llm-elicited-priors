@@ -12,14 +12,14 @@ from sklearn.utils import resample
 from sklearn.compose import ColumnTransformer
 import argparse
 
-from my_code.utils import load_prompts
-from my_code.datasets import load_fake_data
-from my_code.mc import (
+from llm_elicited_priors.utils import load_prompts
+from llm_elicited_priors.datasets import load_fake_data
+from llm_elicited_priors.mc import (
     train_informative_linear_regression,
     train_uninformative_linear_regression,
     predict_model,
 )
-from my_code.gpt import GPTOutputs, get_llm_elicitation_for_dataset
+from llm_elicited_priors.gpt import GPTOutputs, get_llm_elicitation_for_dataset
 
 os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"] = "false"
 

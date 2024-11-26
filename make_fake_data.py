@@ -1,5 +1,5 @@
 import numpy as np
-import my_code.datasets as datasets
+import llm_elicited_priors.datasets as datasets
 
 SEED = 42
 RNG = np.random.default_rng(SEED)

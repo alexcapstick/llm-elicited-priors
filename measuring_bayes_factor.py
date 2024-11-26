@@ -17,11 +17,11 @@ from pathlib import Path
 import pytensor.tensor as pt
 import pymc as pm
 
-from my_code.gpt import (
+from llm_elicited_priors.gpt import (
     get_llm_predictions,
     GPTOutputs,
 )
-from my_code.datasets import (
+from llm_elicited_priors.datasets import (
     load_fake_data,
     load_breast_cancer,
     load_uti,

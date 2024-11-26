@@ -4,10 +4,10 @@ import tqdm
 import numpy as np
 from pathlib import Path
 
-from my_code.datasets import load_raw_dataset_frame
-from my_code.gpt import GPTOutputs
-from my_code.memory_check import header_completion_test, row_completion_test
-from my_code.metrics import levenshtein_score
+from llm_elicited_priors.datasets import load_raw_dataset_frame
+from llm_elicited_priors.gpt import GPTOutputs
+from llm_elicited_priors.memory_check import header_completion_test, row_completion_test
+from llm_elicited_priors.metrics import levenshtein_score
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--seed", type=int, default=42)

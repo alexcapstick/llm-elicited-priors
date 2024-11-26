@@ -13,7 +13,7 @@ from sklearn.utils import resample
 from sklearn.compose import ColumnTransformer
 import argparse
 
-from my_code.datasets import (
+from llm_elicited_priors.datasets import (
     load_fake_data,
     load_uti,
     load_breast_cancer,
@@ -21,15 +21,15 @@ from my_code.datasets import (
     load_heart_disease,
     load_wine_quality,
 )
-from my_code.utils import load_prompts
-from my_code.mc import (
+from llm_elicited_priors.utils import load_prompts
+from llm_elicited_priors.mc import (
     train_informative_linear_regression,
     train_uninformative_linear_regression,
     train_informative_logistic_regression,
     train_uninformative_logistic_regression,
     predict_model,
 )
-from my_code.gpt import (
+from llm_elicited_priors.gpt import (
     LlamaOutputs,
     QwenOutputs,
     GPTOutputs,
