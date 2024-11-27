@@ -1,6 +1,6 @@
 # Using Large Language Models for Expert Prior Elicitation in Predictive Modelling
 
-This is the repository corresponding to the paper **Using Large Language Models for Expert Prior Elicitation in Predictive Modelling** and contains the experimental code for reproducing the results in the paper and implementing the proposed method for new tasks.
+This is the repository corresponding to the paper [**Using Large Language Models for Expert Prior Elicitation in Predictive Modelling**](https://arxiv.org/abs/2411.17284) and contains the experimental code for reproducing the results in the paper and implementing the proposed method for new tasks.
 
 
 ## Installation
