@@ -176,13 +176,17 @@ The following describes each of the scripts used to generate the results that ar
 
 ## Citation
 
-If you find this work useful, please consider citing our paper.
+If you find this work useful, please consider citing our preprint:
 
 ```
-@article{capstick2024leveraging,
-  title={Using Large Language Models for Expert Prior Elicitation in Predictive Modelling},
-  author={Capstick, Alexander and Krishnan, Rahul and Barnaghi, Payam},
-  year={2024}
+@misc{capstick2024usinglargelanguagemodels,
+      title={Using Large Language Models for Expert Prior Elicitation in Predictive Modelling}, 
+      author={Alexander Capstick and Rahul G. Krishnan and Payam Barnaghi},
+      year={2024},
+      eprint={2411.17284},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2411.17284}, 
 }
 ```
 
