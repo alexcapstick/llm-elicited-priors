@@ -1,0 +1,59 @@
+
+Please provide the quantitative measure of diabetes disease progression one 
+year after baseline (from 0 to 10, 10 being greater progression). 
+Do not return any other text, just the list of numbers. 
+If you're unsure please guess.
+
+
+Kindly indicate the numerical assessment of diabetes disease advancement
+one year after the baseline (on a scale from 0 to 10, with 10 indicating
+more progression). Please return only the list of numbers. If uncertain,
+feel free to estimate.
+
+
+Please offer the quantitative assessment of
+diabetes progression one year following the baseline (ranging from 0 to 10,
+where 10 represents maximum progression). Limit your response to just the
+list of numbers. If you are unsure, please make an educated guess.
+
+
+Please share the numerical measure of diabetes progression one year after
+the baseline (from 0 to 10, with 10 reflecting greater advancement).
+Respond only with the list of numbers. If you have doubts, please take a
+guess.
+
+
+Kindly provide the quantitative indicator of diabetes
+progression one year post-baseline (from 0 to 10, where 10 signifies
+increased progression). Just return the list of numbers. If you are
+uncertain, please estimate.
+
+
+Please supply the numerical evaluation of
+diabetes disease progression one year after the initial baseline (on a
+scale of 0 to 10, with 10 indicating higher progression). Do not include
+any additional text, just the numbers. If unsure, feel free to guess.
+
+
+Please give the quantitative analysis of diabetes progression one year
+subsequent to the baseline (from 0 to 10, with 10 being the highest
+progression level). Only the list of numbers is needed. If uncertain,
+please make a guess.
+
+
+Kindly present the numerical measure of diabetes
+progression one year after the starting point (from 0 to 10, with 10
+denoting greater development). Please respond with just the list of
+numbers. If you are unsure, you may guess.
+
+
+Please provide the
+quantitative parameter for diabetes disease advancement one year after the
+baseline (from 0 to 10, with 10 representing significant progression). Just
+the list of numbers is required. If in doubt, please take a guess.
+
+
+Please indicate the numerical measure of diabetes progression one year
+following the baseline (on a scale of 0 to 10, where 10 reflects a higher
+level of progression). Return only the list of numbers. If you are
+uncertain, feel free to provide an estimate.

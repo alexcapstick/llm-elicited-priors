@@ -1,0 +1,61 @@
+
+Please provide the probabilities of a positive hypothyroidism
+diagnosis as a list of numbers between 0 and 1, not including 0 or 1.
+Do not return any other text, just the list of numbers. 
+If you're unsure please guess.
+
+
+Kindly share the probabilities for a positive hypothyroidism diagnosis
+as a sequence of numbers ranging from 0 to 1, excluding both 0 and 1.
+Please refrain from including any additional text, just the list of
+numbers. If you're uncertain, please make an educated guess.
+
+
+Could you
+present the likelihoods of a positive hypothyroidism diagnosis as a series
+of numbers that fall between 0 and 1, while omitting 0 and 1? Just provide
+the list of numbers, without any further text. If you're not certain, feel
+free to estimate.
+
+
+Please list the probabilities of a positive
+hypothyroidism diagnosis using numbers that are between 0 and 1, but do not
+include 0 or 1. Only the list of numbers should be returned; no other text
+is needed. If in doubt, just take a guess.
+
+
+I would appreciate it if you
+could provide the probabilities associated with a positive hypothyroidism
+diagnosis in the form of numbers from 0 to 1, excluding both endpoints.
+Only the numerical list is required; please do not add any other text. If
+unsure, please make an approximation.
+
+
+Please give the probabilities for
+a positive hypothyroidism diagnosis as a set of numbers that lie between 0
+and 1, without including 0 or 1. Just send the numbers, without additional
+text. Feel free to guess if you're not certain.
+
+
+Could you give the
+chances of a positive hypothyroidism diagnosis expressed as numbers that
+exist between 0 and 1, but do not include 0 or 1? Just the list of numbers
+is needed; no extra text, please. If you're not sure, you may guess.
+
+
+I ask that you supply the probabilities for a positive hypothyroidism
+diagnosis in numeric form, restricted to values between 0 and 1, excluding
+0 and 1. Please return only the numbers with no other text. If unsure,
+please provide an estimate.
+
+
+Please submit the probabilities related to
+a positive hypothyroidism diagnosis as a list of figures that range from 0
+to 1, without including 0 or 1 in the list. Only the numbers are necessary;
+do not include any other text. If in doubt, feel free to approximate.
+
+
+I would like you to supply the probabilities of a positive hypothyroidism
+diagnosis as a list of digits that range between 0 and 1, excluding both 0
+and 1. Only the numerical list is required; please refrain from adding any
+additional text. If you're unsure, a guess would be acceptable.

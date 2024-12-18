@@ -28,6 +28,8 @@ from llm_elicited_priors.datasets import (
     load_california_housing,
     load_heart_disease,
     load_wine_quality,
+    load_sk_diabetes,
+    load_hypothyroid,
 )
 
 
@@ -42,10 +44,12 @@ parser.add_argument(
     default=[
         "uti",
         "breast_cancer",
-        "california_housing",
         "heart_disease",
-        "wine_quality",
         "fake_data",
+        "diabetes",
+        "hypothyroid",
+        # "california_housing",
+        # "wine_quality",
     ],
     nargs="+",
 )
@@ -63,7 +67,7 @@ args = parser.parse_args()
 #### the correct output in-context when the number of features is too large
 N_FEATURES = 10
 
-PRIORS_DIR = "./priors/elicitation"
+PRIORS_DIR = "./priors/elicitation/gpt-3-5-turbo-0125"
 PROMPTS_DIR = "./prompts/icl"
 
 DATASETS = args.dataset
@@ -87,6 +91,8 @@ DATASET_FUNCTIONS = {
     "california_housing": load_california_housing,
     "heart_disease": load_heart_disease,
     "wine_quality": load_wine_quality,
+    "diabetes": load_sk_diabetes,
+    "hypothyroid": load_hypothyroid,
 }
 
 DATASET_MODEL_TYPES = {
@@ -96,6 +102,8 @@ DATASET_MODEL_TYPES = {
     "california_housing": "linear",
     "heart_disease": "logistic",
     "wine_quality": "logistic",
+    "diabetes": "linear",
+    "hypothyroid": "logistic",
 }
 
 DO_INCONEXT_LEARNING = {
@@ -105,6 +113,8 @@ DO_INCONEXT_LEARNING = {
     "california_housing": True,
     "heart_disease": True,
     "wine_quality": True,
+    "diabetes": True,
+    "hypothyroid": True,
 }
 
 Path(SAVE_PATH).mkdir(parents=True, exist_ok=True)
@@ -348,6 +358,8 @@ dataset_informative_prior_predictive_functions = {
     "california_housing": sample_informative_prior_predictive_linear_regression,
     "heart_disease": sample_informative_prior_predictive_logistic_regression,
     "wine_quality": sample_informative_prior_predictive_logistic_regression,
+    "diabetes": sample_informative_prior_predictive_linear_regression,
+    "hypothyroid": sample_informative_prior_predictive_logistic_regression,
 }
 
 dataset_uninformative_prior_predictive_functions = {
@@ -357,6 +369,8 @@ dataset_uninformative_prior_predictive_functions = {
     "california_housing": sample_uninformative_prior_predictive_linear_regression,
     "heart_disease": sample_uninformative_prior_predictive_logistic_regression,
     "wine_quality": sample_uninformative_prior_predictive_logistic_regression,
+    "diabetes": sample_uninformative_prior_predictive_linear_regression,
+    "hypothyroid": sample_uninformative_prior_predictive_logistic_regression,
 }
 
 
@@ -367,6 +381,8 @@ dataset_metrics_function = {
     "california_housing": get_metrics_regression,
     "heart_disease": get_metrics_classification,
     "wine_quality": get_metrics_classification,
+    "diabetes": get_metrics_regression,
+    "hypothyroid": get_metrics_classification,
 }
 
 

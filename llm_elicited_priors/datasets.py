@@ -1,3 +1,6 @@
+import urllib.request
+import zipfile
+import shutil
 from pathlib import Path
 import pandas as pd
 import numpy as np
@@ -13,6 +16,9 @@ uci_ids = {
     "iris": 53,
     "wine_quality": 186,
     "wine": 109,
+    "maternal_health_risk": 863,
+    "vertebral_column": 212,
+    "heart_failure": 519,
 }
 
 
@@ -50,7 +56,7 @@ def load_and_save_uci_dataset(
     if file_path.exists():
         data = pd.read_parquet(file_path)
     else:
-        dataset = fetch_ucirepo(id=uci_ids[dataset_name])
+        dataset = fetch_ucirepo(id=uci_ids.get(dataset_name, dataset_name))
         # saving the data for
         # the next time it is loaded
         print("Saving the data")
@@ -509,23 +515,6 @@ def load_heart_disease(
     y = (data["target"] > 0).astype(int).squeeze()
     data = data.drop(columns=["target"])
 
-    # if path.exists():
-    #     data = pd.read_parquet(path)
-    #     # making sure targets are binary
-    #     y = (data["target"] > 0).astype(int).squeeze()
-    #     data = data.drop(columns=["target"])
-    # else:
-    #     heart_disease = fetch_ucirepo(id=45)
-    #     # saving the data for
-    #     # the next time it is loaded
-    #     print("Saving the data")
-    #     df = heart_disease.data.features.assign(target=heart_disease.data.targets)
-    #     df.to_parquet(path)
-
-    #     data = heart_disease.data.features
-    #     # making sure targets are binary
-    #     y = (heart_disease.data.target > 0).astype(int).squeeze()
-
     # selecting only the features we want
     data = data[features_to_include]
 
@@ -678,19 +667,245 @@ def load_wine_quality(
     return wine_quality_dataset
 
 
-def load_french_motor_insurance_claims(
-    path: Path = Path.home().joinpath("data"),
+def load_sk_diabetes(
     return_X_y: bool = False,
     as_frame: bool = False,
 ) -> Bunch:
     """
-    --------
-    Unused in the experiments as many of the features are categorical
-    and need to be one-hot encoded, which often provides too many features
-    for in-context learning to work well with in our testing.
-    --------
+    Load and return the diabetes dataset
+    (https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html).
 
-    Load and return the french_motor_insurance_claims dataset.
+    Arguments
+    ---------
+
+    return_X_y: bool
+        Whether to return data and target as numpy arrays.
+        Defaults to :code:`False`.
+
+    as_frame: bool
+        Whether to return the data as a pandas DataFrame.
+        Defaults to :code:`False`.
+
+
+    Returns
+    -------
+
+    Bunch
+        Dictionary-like object, the interesting attributes are:
+        'data', the data to learn, 'target', the classification target for each sample,
+        'feature_names', the feature names, 'target_names', the target names,
+        and 'frame', the pandas DataFrame.
+
+    Tuple
+        If :code:`return_X_y=True`, then a tuple of data and target.
+        If :code:`as_frame=True`, then as pandas DataFrame otherwise as numpy arrays.
+
+
+    """
+
+    features_to_rename = {
+        "age": "age",
+        "sex": "sex",
+        "bmi": "body mass index",
+        "bp": "average blood pressure",
+        "s1": "total serum cholesterol",
+        "s2": "low-density lipoproteins",
+        "s3": "high-density lipoproteins",
+        "s4": "total cholesterol / HDL",
+        "s5": "log of serum triglycerides level",
+        "s6": "blood sugar level",
+    }
+
+    diabetes_dataset = skd.load_diabetes(as_frame=True, scaled=False)
+
+    frame = diabetes_dataset.frame.rename(columns=features_to_rename)
+    data = frame.drop(columns=["target"])
+    target = (
+        10 * (frame["target"] - 25) / (346 - 25)
+    )  # range of possible y values -> 0 to 10
+
+    data, target, target_names, feature_names = (
+        data,
+        target,
+        [
+            "quantitative measure of diabetes disease progression one year after baseline (0 to 10)"
+        ],
+        data.columns.tolist(),
+    )
+
+    if not as_frame:
+        data = data.to_numpy()
+        target = target.to_numpy()
+
+    if return_X_y:
+        return data, target
+
+    diabetes_dataset = Bunch(
+        data=data,
+        target=target,
+        feature_names=np.array(feature_names),
+        frame=frame.assign(target=target),
+        target_names=np.array(target_names),
+    )
+
+    return diabetes_dataset
+
+
+# function to download thyroid dataset
+def download_thyroid_dataset(path: Path = Path.home().joinpath("data")) -> None:
+    # download from url
+    url = "https://archive.ics.uci.edu/static/public/102/thyroid+disease.zip"
+
+    file_path = path.joinpath("thyroid.zip")
+
+    urllib.request.urlretrieve(url, file_path)
+    unzipped_path = path.joinpath("thyroid")
+
+    # unzip
+    with zipfile.ZipFile(file_path, "r") as zip_ref:
+        zip_ref.extractall(unzipped_path)
+
+    # remove zip file
+    file_path.unlink()
+
+    return None
+
+
+# function to process the raw data and save it as a parquet file
+def process_raw_and_save_thyroid(path: Path = Path.home().joinpath("data")) -> None:
+
+    file_path = path.joinpath("thyroid/ann-train.data")
+
+    with open(file_path, "r") as f:
+        lines = f.readlines()
+
+    data = []
+    for line in lines:
+        data.append(line.strip().split(" "))
+
+    data = pd.DataFrame(
+        data,
+        columns=[
+            "age",
+            "sex",
+            "patient on thyroxine",
+            "maybe on thyroxine",
+            "on antithyroid medication",
+            "patient reports malaise",
+            "patient pregnant",
+            "history of thyroid surgery",
+            "patient on I131 treatment",
+            "maybe hypothyroid",
+            "maybe hyperthyroid",
+            "patient on lithium",
+            "patient has goitre",
+            "patient has tumour",
+            "patient hypopituitary",
+            "psychological symptoms",
+            "thyroid-stimulating hormone value (TSH)",
+            "triiodothyronine value (T3)",
+            "total thyroxine value (TT4)",
+            "thyroxine uptake value (T4U)",
+            "free thyroxine index value (FTI)",
+            "target",
+        ],
+    )
+
+    data = data.astype(
+        {
+            "age": "float",
+            "sex": "int",
+            "patient on thyroxine": "int",
+            "maybe on thyroxine": "int",
+            "on antithyroid medication": "int",
+            "patient reports malaise": "int",
+            "patient pregnant": "int",
+            "history of thyroid surgery": "int",
+            "patient on I131 treatment": "int",
+            "maybe hypothyroid": "int",
+            "maybe hyperthyroid": "int",
+            "patient on lithium": "int",
+            "patient has goitre": "int",
+            "patient has tumour": "int",
+            "patient hypopituitary": "int",
+            "psychological symptoms": "int",
+            "thyroid-stimulating hormone value (TSH)": "float",
+            "triiodothyronine value (T3)": "float",
+            "total thyroxine value (TT4)": "float",
+            "thyroxine uptake value (T4U)": "float",
+            "free thyroxine index value (FTI)": "float",
+            "target": "int",
+        }
+    )
+
+    data.to_parquet(path.joinpath("thyroid_dataset_original.parquet"))
+
+    data["age"] = (data["age"] * 100).astype("int")
+
+    class_of_interest = 1  # hypothyroid
+    class_normal = 3
+
+    data = data[data["target"].isin([class_of_interest, class_normal])]
+    data["target"] = (data["target"] == class_of_interest).astype(int)
+
+    # balanced sample from the data
+    data = (
+        data.groupby("target", group_keys=False)
+        .sample(75, replace=False, random_state=0)
+        .reset_index(drop=True)
+    )
+
+    columns_to_use_for_prediction = [
+        "thyroid-stimulating hormone value (TSH)",
+        "triiodothyronine value (T3)",
+        "total thyroxine value (TT4)",
+        "thyroxine uptake value (T4U)",
+        # "free thyroxine index value (FTI)",
+    ]
+
+    data = data[columns_to_use_for_prediction + ["target"]]
+
+    # save the processed data as a single file
+    data.to_parquet(path.joinpath("thyroid_dataset.parquet"))
+
+    return None
+
+
+# function to clean up the files
+def clean_thyroid_data_files(path: Path = Path.home().joinpath("data")) -> None:
+
+    # remove the unzipped folder
+    shutil.rmtree(path.joinpath("thyroid"))
+
+    return None
+
+
+# function to download and process the thyroid dataset
+def download_and_process_raw_thyroid(path: Path = Path.home().joinpath("data")) -> None:
+
+    print("Downloading thyroid dataset")
+    download_thyroid_dataset(path)
+
+    print("Processing and saving thyroid dataset")
+    process_raw_and_save_thyroid(path)
+
+    print("Cleaning up the files")
+    clean_thyroid_data_files(path)
+
+    return None
+
+
+# function to load the thyroid dataset
+def load_hypothyroid(
+    as_frame: bool = False,
+    return_X_y: bool = False,
+    path: Path = Path.home().joinpath("data"),
+) -> Bunch:
+    """
+    Load and return the hypothyroid dataset.
+
+    data: https://archive.ics.uci.edu/dataset/102/thyroid+disease
+    feature and target information: https://arxiv.org/abs/cs/9503102
 
     Arguments
     ---------
@@ -722,51 +937,19 @@ def load_french_motor_insurance_claims(
         If :code:`return_X_y=True`, then a tuple of data and target.
         If :code:`as_frame=True`, then as pandas DataFrame otherwise as numpy arrays.
 
-
     """
+    file_path = path.joinpath("thyroid_dataset.parquet")
 
-    if not path.joinpath("cal_housing_py3.pkz").exists():
-        print("Saving the data")
+    if not file_path.exists():
+        download_and_process_raw_thyroid(path)
 
-    french_motor_insurance_claims_dataset = skd.fetch_openml(
-        data_id=41214, data_home=path, as_frame=True
-    )
+    thyroid_dataset = pd.read_parquet(file_path)
 
-    feature_name_map = {
-        "VehPower": "the power of the car from 0 - 1 (low to high)",
-        "VehAge": "the vehicle age (in years)",
-        "DrivAge": "the driver age (in years)",
-        "BonusMalus": "bonus or malus (True=bonus, False=malus)",
-        "VehGas": "car fuel type (0 = regular, 1 = diesel)",
-        "Density": "log10 of number of inhabitants per km2 in the city the driver lives in",
-    }
+    data = thyroid_dataset.drop(columns="target")
+    target = thyroid_dataset["target"]
 
-    target_names = "number of claims in a year"
-
-    data = french_motor_insurance_claims_dataset.frame[
-        ["DrivAge", "BonusMalus", "VehAge", "VehPower", "VehGas", "Density"]
-    ]
-    target = french_motor_insurance_claims_dataset.frame.apply(
-        lambda df: df["ClaimNb"] / df["Exposure"], axis=1
-    ).rename(target_names)
-
-    # processing the data
-    data = (
-        data.astype(object)
-        .assign(
-            Density=lambda df: np.log10(df["Density"].astype(float)),
-            VehGas=lambda df: df["VehGas"].map({"'Regular'": 0, "'Diesel'": 1}),
-            VehPower=lambda df: df[["VehPower"]].apply(
-                lambda x: (x - x.min()) / (x.max() - x.min())
-            ),
-            BonusMalus=lambda df: df["BonusMalus"] < 100,
-        )
-        .rename(columns=feature_name_map)
-    )
-
-    feature_names = data.columns
-
-    frame = pd.concat([data, target], axis=1)
+    feature_names = data.columns.to_numpy()
+    target_names = np.array(["normal", "hypothyroidism"])
 
     if not as_frame:
         data = data.to_numpy()
@@ -775,15 +958,15 @@ def load_french_motor_insurance_claims(
     if return_X_y:
         return data, target
 
-    french_motor_insurance_claims_dataset = Bunch(
+    thyroid_dataset = Bunch(
         data=data,
         target=target,
         feature_names=np.array(feature_names),
-        target_names=[target_names],
-        frame=frame,
+        frame=thyroid_dataset,
+        target_names=target_names,
     )
 
-    return french_motor_insurance_claims_dataset
+    return thyroid_dataset
 
 
 def make_fake_data(
@@ -984,10 +1167,13 @@ def load_raw_dataset_frame(
     elif dataset_name == "breast_cancer":
         return skd.load_breast_cancer(as_frame=True)["frame"]
 
+    elif dataset_name == "diabetes":
+        return skd.load_diabetes(as_frame=True, scaled=False)["frame"]
+
     elif dataset_name == "california_housing":
         return skd.fetch_california_housing(as_frame=True, data_home=path)["frame"]
 
-    elif dataset_name == "diabetes":
+    elif dataset_name == "diabetes_37":
         return skd.fetch_openml(data_id=37, as_frame=True, data_home=path)["frame"]
 
     # all of the following are loaded from the UCI repository
@@ -999,6 +1185,9 @@ def load_raw_dataset_frame(
         "adult",
     ]:
         return load_and_save_uci_original_dataset(dataset_name=dataset_name, path=path)
+
+    elif dataset_name == "hypothyroid":
+        return pd.read_parquet(path.joinpath("thyroid_dataset_original.parquet"))
 
     else:
         raise ValueError(f"Unknown dataset name: {dataset_name}")

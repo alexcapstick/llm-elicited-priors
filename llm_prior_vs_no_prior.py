@@ -20,6 +20,8 @@ from llm_elicited_priors.datasets import (
     load_california_housing,
     load_heart_disease,
     load_wine_quality,
+    load_sk_diabetes,
+    load_hypothyroid,
 )
 from llm_elicited_priors.utils import load_prompts
 from llm_elicited_priors.mc import (
@@ -48,9 +50,11 @@ parser.add_argument(
         "fake_data",
         "uti",
         "breast_cancer",
-        "california_housing",
         "heart_disease",
-        "wine_quality",
+        "diabetes",
+        "hypothyroid",
+        # "california_housing",
+        # "wine_quality",
     ],
 )
 
@@ -95,6 +99,12 @@ for dataset in args.dataset:
         "california_housing",
         "heart_disease",
         "wine_quality",
+        "maternal_health_risk",
+        "diabetes",
+        "hypothyroid",
+        "blood_donation",
+        "vertebral_column",
+        "heart_failure",
     ]:
         raise ValueError(f"Dataset {dataset} not recognised")
 
@@ -127,6 +137,8 @@ TEST_SIZE = {
     "california_housing": 0.5,
     "heart_disease": 0.5,
     "wine_quality": 0.5,
+    "diabetes": 0.5,
+    "hypothyroid": 0.5,
 }
 N_SAMPLES = 5000
 N_CHAINS = 5
@@ -215,12 +227,14 @@ RESULTS_DIR = os.path.join(
 Path(RESULTS_DIR).mkdir(parents=True, exist_ok=True)
 
 DATASET_FUNCTIONS = {
-    "fake_data": load_fake_data(as_frame=True),
-    "breast_cancer": load_breast_cancer(as_frame=True),
-    "uti": load_uti(as_frame=True),
-    "california_housing": load_california_housing(as_frame=True),
-    "heart_disease": load_heart_disease(as_frame=True),
-    "wine_quality": load_wine_quality(as_frame=True),
+    "fake_data": load_fake_data,
+    "breast_cancer": load_breast_cancer,
+    "uti": load_uti,
+    "california_housing": load_california_housing,
+    "heart_disease": load_heart_disease,
+    "wine_quality": load_wine_quality,
+    "diabetes": load_sk_diabetes,
+    "hypothyroid": load_hypothyroid,
 }
 
 
@@ -266,6 +280,8 @@ dataset_uninformative_training_functions = {
     "california_housing": train_uninformative_linear_regression,
     "heart_disease": train_uninformative_logistic_regression,
     "wine_quality": train_uninformative_logistic_regression,
+    "diabetes": train_uninformative_linear_regression,
+    "hypothyroid": train_uninformative_logistic_regression,
 }
 
 dataset_informative_training_functions = {
@@ -275,6 +291,8 @@ dataset_informative_training_functions = {
     "california_housing": train_informative_linear_regression,
     "heart_disease": train_informative_logistic_regression,
     "wine_quality": train_informative_logistic_regression,
+    "diabetes": train_informative_linear_regression,
+    "hypothyroid": train_informative_logistic_regression,
 }
 
 dataset_split_classes = {
@@ -284,6 +302,8 @@ dataset_split_classes = {
     "california_housing": skms.ShuffleSplit,
     "heart_disease": skms.StratifiedShuffleSplit,
     "wine_quality": skms.StratifiedShuffleSplit,
+    "diabetes": skms.ShuffleSplit,
+    "hypothyroid": skms.StratifiedShuffleSplit,
 }
 
 dataset_metrics_function = {
@@ -293,15 +313,19 @@ dataset_metrics_function = {
     "california_housing": get_metrics_regression,
     "heart_disease": get_metrics_classification,
     "wine_quality": get_metrics_classification,
+    "diabetes": get_metrics_regression,
+    "hypothyroid": get_metrics_classification,
 }
 
 dataset_metric_to_print = {
     "fake_data": "average_mse",
-    "breast_cancer": "average_auc",
-    "uti": "average_auc",
+    "breast_cancer": "average_accuracy",
+    "uti": "average_accuracy",
     "california_housing": "average_mse",
-    "heart_disease": "average_auc",
-    "wine_quality": "average_auc",
+    "heart_disease": "average_accuracy",
+    "wine_quality": "average_accuracy",
+    "diabetes": "average_mse",
+    "hypothyroid": "average_accuracy",
 }
 
 
@@ -327,7 +351,7 @@ if GET_FROM_API:
             os.path.join(PROMPTS_DIR, f"user_roles_{dataset_name}.txt")
         )
 
-        dataset = DATASET_FUNCTIONS[dataset_name]
+        dataset = DATASET_FUNCTIONS[dataset_name](as_frame=True)
         client = CLIENT_CLASS(**CLIENT_KWARGS)
 
         priors = get_llm_elicitation_for_dataset(
@@ -362,7 +386,7 @@ if RUN_EXPERIMENTS:
     )
 
     for dataset_name in DATASETS_TO_EXPERIMENT:
-        dataset = DATASET_FUNCTIONS[dataset_name]
+        dataset = DATASET_FUNCTIONS[dataset_name](as_frame=True)
 
         rng = np.random.default_rng(RANDOM_SEED)
 

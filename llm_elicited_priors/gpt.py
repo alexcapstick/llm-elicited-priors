@@ -99,7 +99,8 @@ class LlamaOutputs(LLMOutputs):
             "text-generation",
             model=model_id,
             model_kwargs=model_pipeline_args,
-            device_map="balanced_low_0",
+            device_map="auto",
+            # device_map="balanced_low_0",
         )
         self.terminators = [
             self.pipeline.tokenizer.eos_token_id,
@@ -135,7 +136,8 @@ class LlamaOutputs(LLMOutputs):
                 messages.append(
                     {
                         "role": "system",
-                        "content": "I am only returning a JSON object and nothing else: {",
+                        "content": "I am only returning a JSON object with "
+                        + "'mean' and 'std' for each feature and nothing else: {",
                     }
                 )
 
@@ -236,7 +238,8 @@ class QwenOutputs(LLMOutputs):
             "text-generation",
             model=model_id,
             model_kwargs=model_pipeline_args,
-            device_map="balanced_low_0",
+            device_map="auto",
+            # device_map="balanced_low_0",
         )
         self.top_p = top_p
         self.temperature = temperature
@@ -268,7 +271,8 @@ class QwenOutputs(LLMOutputs):
                 messages.append(
                     {
                         "role": "system",
-                        "content": "I am only returning a JSON object and nothing else: ",
+                        "content": "I am only returning a JSON object with "
+                        + "'mean' and 'std' for each feature and nothing else: {",
                     }
                 )
 
@@ -299,7 +303,7 @@ class GPTOutputs(LLMOutputs):
         rng: np.random._generator.Generator = None,
     ):
         """
-        This class allows you to interact with the Meta-Llama model.
+        This class allows you to interact with the OpenAI models.
 
         Arguments
         ---------
@@ -517,9 +521,15 @@ def get_llm_elicitation(
         ]
     )
 
-    processed_result = result.replace("\n", "").replace("```", "")
+    processed_result = result.replace("\n", "").replace("```", "").replace("\\", "")
     if processed_result.startswith("json"):
         processed_result = processed_result[4:]
+
+    if processed_result.startswith('"'):
+        processed_result = processed_result[1:]
+
+    if processed_result.endswith('"'):
+        processed_result = processed_result[:-1]
 
     if not processed_result.replace(" ", "").startswith("{"):
         processed_result = "{" + processed_result
@@ -529,8 +539,12 @@ def get_llm_elicitation(
 
     if not processed_result.replace(" ", "").endswith("}}"):
         processed_result = processed_result + "}}"
-
-    llm_weights = {key: value for key, value in eval(processed_result).items()}
+    try:
+        llm_weights = {key: value for key, value in eval(processed_result).items()}
+    except:
+        print("tried the processed result:", processed_result)
+        print("the original was:", result)
+        raise ValueError("Could not evaluate the response from the language model.")
 
     return llm_weights
 

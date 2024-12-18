@@ -23,6 +23,8 @@ from llm_elicited_priors.datasets import (
     load_california_housing,
     load_wine_quality,
     load_heart_disease,
+    load_sk_diabetes,
+    load_hypothyroid,
 )
 
 from llm_elicited_priors.mc import sample_posterior_from_prior_samples
@@ -37,9 +39,11 @@ parser.add_argument(
     default=[
         "fake_data",
         "breast_cancer",
-        "california_housing",
         "heart_disease",
-        "wine_quality",
+        "diabetes",
+        "hypothyroid",
+        # "wine_quality",
+        # "california_housing",
     ],
 )
 
@@ -63,6 +67,8 @@ for dataset in args.dataset:
         "california_housing",
         "heart_disease",
         "wine_quality",
+        "diabetes",
+        "hypothyroid",
     ]:
         raise ValueError(f"Dataset {dataset} not recognised")
 
@@ -75,6 +81,8 @@ DATASET_FUNCTIONS = {
     "california_housing": load_california_housing(as_frame=False, return_X_y=False),
     "wine_quality": load_wine_quality(as_frame=False, return_X_y=False),
     "heart_disease": load_heart_disease(as_frame=False, return_X_y=False),
+    "diabetes": load_sk_diabetes(as_frame=False, return_X_y=False),
+    "hypothyroid": load_hypothyroid(as_frame=False, return_X_y=False),
 }
 
 DATASET_MODEL_TYPES = {
@@ -84,6 +92,8 @@ DATASET_MODEL_TYPES = {
     "california_housing": "regression",
     "heart_disease": "classification",
     "wine_quality": "classification",
+    "diabetes": "regression",
+    "hypothyroid": "classification",
 }
 
 BW_METHOD = 0.25

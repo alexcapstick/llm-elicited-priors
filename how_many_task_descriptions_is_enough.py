@@ -1,35 +1,53 @@
 import os
 import tqdm
+import argparse
 import json
 import itertools
 from pathlib import Path
 import numpy as np
 import pymc as pm
-import pytensor.tensor as pt
-import scipy.stats as stats
 
 from llm_elicited_priors.metrics import energy_distance_chunked
 from llm_elicited_priors.utils import load_prompts
 
 PROMPTS_DIR = "./prompts/elicitation"
-PRIORS_DIR = "./priors/elicitation"
+PRIORS_DIR = "./priors/elicitation/gpt-3-5-turbo-0125"
 SAVE_DIR = "./results/elicitation"
 N_REPEATS = 10
 SEED = 42
 
-dataset_order = [
+POSSIBLE_DATASETS = [
     "fake_data",
     "uti",
     "breast_cancer",
-    "california_housing",
-    "wine_quality",
     "heart_disease",
+    "diabetes",
+    "hypothyroid",
+    # "california_housing",
+    # "wine_quality",
 ]
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "--dataset",
+    type=str,
+    help="The dataset(s) to use for the experiments",
+    nargs="+",
+    default=POSSIBLE_DATASETS,
+)
+
+args = parser.parse_args()
+
+for dataset in args.dataset:
+    if dataset not in POSSIBLE_DATASETS:
+        raise ValueError(f"Dataset {dataset} not recognised")
+
+datasets_to_test = args.dataset
 
 results = {}
 
 n_priors_to_use_list = [4, 5, 6, 7, 8, 9, 10]
-for dataset_name in tqdm.tqdm(dataset_order, desc="Datasets", position=0):
+for dataset_name in tqdm.tqdm(datasets_to_test, desc="Datasets", position=0):
     RNG = np.random.default_rng(SEED)
 
     # load all priors

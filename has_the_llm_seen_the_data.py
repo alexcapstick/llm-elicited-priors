@@ -16,10 +16,12 @@ parser.add_argument(
     type=str,
     default=[
         "breast_cancer",
-        "california_housing",
         "heart_disease",
-        "wine_quality",
         "fake_data",
+        "diabetes",
+        "hypothyroid",
+        # "california_housing",
+        # "wine_quality",
     ],
     nargs="+",
 )
@@ -44,10 +46,12 @@ DATASETS = args.dataset
 for d in DATASETS:
     assert d in [
         "breast_cancer",
-        "california_housing",
         "heart_disease",
-        "wine_quality",
         "fake_data",
+        "diabetes",
+        "hypothyroid",
+        "california_housing",
+        "wine_quality",
     ]
 
 for df_name in tqdm.tqdm(DATASETS, desc="Iterating over datasets"):
@@ -63,10 +67,23 @@ for df_name in tqdm.tqdm(DATASETS, desc="Iterating over datasets"):
     client = CLIENT_CLASS(rng=RNG, **CLIENT_KWARGS)
 
     # ==== header test ====
+    few_shot_datasets = [
+        "iris",
+        "adult",
+        "california_housing",
+        "wine",
+    ]
+
+    assert (
+        df_name not in few_shot_datasets
+    ), f"{df_name} is in few_shot_datasets and should not be"
 
     # run header test
     header_prompt, header_completion, llm_completion = header_completion_test(
-        df, client, rng=RNG
+        df,
+        client,
+        rng=RNG,
+        few_shot_datasets=few_shot_datasets,
     )
 
     # collating header results

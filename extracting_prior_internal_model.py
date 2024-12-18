@@ -15,6 +15,8 @@ from llm_elicited_priors.datasets import (
     load_california_housing,
     load_heart_disease,
     load_wine_quality,
+    load_sk_diabetes,
+    load_hypothyroid,
 )
 from llm_elicited_priors.gpt import (
     sample_approximate_llm_internal_predictive_model_parameters,
@@ -32,10 +34,12 @@ parser.add_argument(
     default=[
         "breast_cancer",
         "uti",
-        "california_housing",
         "heart_disease",
-        "wine_quality",
         "fake_data",
+        "diabetes",
+        "hypothyroid",
+        # "california_housing",
+        # "wine_quality",
     ],
     nargs="+",
 )
@@ -77,6 +81,8 @@ POSSIBLE_DATASETS = [
     "heart_disease",
     "wine_quality",
     "fake_data",
+    "diabetes",
+    "hypothyroid",
 ]
 
 DATASET_FUNCTIONS = {
@@ -86,6 +92,8 @@ DATASET_FUNCTIONS = {
     "california_housing": load_california_housing,
     "heart_disease": load_heart_disease,
     "wine_quality": load_wine_quality,
+    "diabetes": load_sk_diabetes,
+    "hypothyroid": load_hypothyroid,
 }
 
 DATASET_MODEL_TYPES = {
@@ -95,6 +103,8 @@ DATASET_MODEL_TYPES = {
     "california_housing": "linear",
     "heart_disease": "logistic",
     "wine_quality": "logistic",
+    "diabetes": "linear",
+    "hypothyroid": "logistic",
 }
 
 PROMPTS_DIR = "./prompts/icl"

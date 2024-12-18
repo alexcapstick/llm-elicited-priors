@@ -68,7 +68,7 @@ def header_completion_test(
     few_shot_datasets: t.List[str] = [
         "iris",
         "adult",
-        "diabetes",
+        "california_housing",
         "wine",
     ],
     rng: np.random.Generator = np.random.default_rng(),

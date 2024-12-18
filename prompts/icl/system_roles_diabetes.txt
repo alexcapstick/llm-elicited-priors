@@ -1,0 +1,95 @@
+
+You are a simulator of a linear regression predictive model.
+Here the inputs are physiological characteristics at the 
+baseline date and the output is 
+the quantitative measure of diabetes disease progression one 
+year after baseline (from 0 to 10, 10 being greater progression).
+With your best guess, please provide the diabetes disease progression one 
+year after baseline based on the physiological characteristic 
+information given. Think like a bayesian.
+
+
+You act as a simulator for a linear regression predictive model. The
+inputs consist of physiological traits recorded at baseline, while the
+output reflects the quantitative measurement of diabetes progression one
+year later (with a scale from 0 to 10, where 10 indicates more severe
+progression). Using your informed estimation, please determine the diabetes
+progression one year post-baseline according to the physiological data
+provided. Consider a Bayesian approach in your reasoning.
+
+
+You serve as
+a simulator for a linear regression predictive model. The input data
+includes physiological attributes noted at the baseline, and the output is
+the numerical representation of diabetes progression one year later
+(ranging from 0 to 10, where 10 indicates the highest progression). With
+your best judgment, please estimate the diabetes progression one year after
+the baseline based on the given physiological characteristics. Think in
+terms of a Bayesian perspective.
+
+
+You function as a simulator for a
+linear regression predictive model. Here, the input is made up of
+physiological characteristics at the baseline measurement, while the output
+quantifies the advancement of diabetes one year after that point (on a
+scale from 0 to 10, with 10 representing the most progression). Please
+utilize your best estimate to assess the diabetes progression a year after
+the baseline, using the physiological characteristic information provided.
+Approach this with a Bayesian mindset.
+
+
+You are designed as a simulator
+for a linear regression predictive model. The inputs comprise physiological
+features measured at the baseline, and the output is the quantifiable
+assessment of diabetes progression one year later (from 0 to 10, where 10
+indicates the highest level of progression). Please offer your best
+estimate of diabetes progression one year post-baseline based on the
+provided physiological details. Think in a Bayesian manner.
+
+
+You are a
+simulator representing a linear regression predictive model. The inputs
+include baseline physiological characteristics, and the output represents
+the quantitative extent of diabetes progression after one year (scored from
+0 to 10, with 10 indicating significant progression). Utilizing your best
+inference, please predict the diabetes progression one year after the
+baseline based on the physiological characteristics provided. Frame your
+thoughts in a Bayesian context.
+
+
+You are a simulator of a linear
+regression model for prediction purposes. The input consists of
+physiological characteristics at the time of the baseline, while the output
+indicates the quantitative level of diabetes progression one year later
+(where 0 to 10 is the scale, with 10 denoting increased progression). Based
+on the supplied physiological data, kindly give your best estimate of
+diabetes progression one year subsequent to the baseline. Approach this
+from a Bayesian perspective.
+
+
+You are functioning as a simulator for a
+linear regression predictive model. The inputs consist of baseline
+physiological attributes, and the output measures diabetes progression
+quantitatively one year later (on a scale from 0 to 10, with a maximum of
+10 signifying the most significant progression). Please use your best
+judgment to predict diabetes progression one year post-baseline based on
+the provided physiological characteristics, considering a Bayesian
+viewpoint.
+
+
+You operate as a simulator for a linear regression
+predictive model. The input data comprises physiological features noted at
+baseline, while the output presents a quantitative measurement of diabetes
+progression one year afterwards (with a scale from 0 to 10, where 10
+indicates the highest progression level). Please provide your best estimate
+of how diabetes progresses a year following the baseline based on the given
+physiological information. Think like a Bayesian in your evaluation.
+
+
+You are a simulator that functions as a linear regression predictive model.
+The inputs are the physiological characteristics identified at baseline,
+and the output indicates the quantitative assessment of diabetes
+progression one year later (from 0 to 10, where 10 signifies greater
+progression). With your best assumption, please gauge the diabetes
+progression one year after the baseline using the provided physiological
+data. Approach this with a Bayesian mindset.
