@@ -62,13 +62,13 @@ Many examples of system roles and user roles can be found in the `prompts/elicit
 The `get_llm_elicitation` function can be used to elicit priors for any of these roles, which can be adapted for any new task.
 These prompts can be loaded using the function `llm_elicited_priors.utils import load_prompts`.
 
-To elicit prior distributions from the wine quality dataset using GPT-3.5 turbo, we can use the following code (also found in `example_dataset_elicitation.ipynb`):
+To elicit prior distributions from the Breast Cancer dataset using GPT-3.5 turbo, we can use the following code (also found in `example_dataset_elicitation.ipynb`):
 
 ```python
 # import the necessary functions and classes
 from llm_elicited_priors.utils import load_prompts
 from llm_elicited_priors.gpt import GPTOutputs, get_llm_elicitation_for_dataset
-from llm_elicited_priors.datasets import load_wine_quality
+from llm_elicited_priors.datasets import load_breast_cancer
 
 # wrapper for language models
 # see llm_elicited_priors.gpt for more details
@@ -84,11 +84,11 @@ CLIENT_KWARGS = dict(
 # load the dataset which contains information
 # about the feature names, target names, and 
 # the dataset itself
-wine_quality = load_wine_quality()
+dataset = load_breast_cancer()
 
 # load the prompts for the system and user roles
-system_roles = load_prompts("prompts/elicitation/system_roles_wine_quality.txt")
-user_roles = load_prompts("prompts/elicitation/user_roles_wine_quality.txt")
+system_roles = load_prompts("prompts/elicitation/system_roles_breast_cancer.txt")
+user_roles = load_prompts("prompts/elicitation/user_roles_breast_cancer.txt")
 
 # create the llm client
 client = CLIENT_CLASS(**CLIENT_KWARGS)
@@ -101,9 +101,9 @@ expert_priors = get_llm_elicitation_for_dataset(
     system_roles=system_roles,
     user_roles=user_roles,
     # the dataset contains the feature names as an attribute
-    feature_names=wine_quality.feature_names.tolist(),
+    feature_names=dataset.feature_names.tolist(),
     # the dataset contains the target names as an attribute
-    target_map={k: v for v, k in enumerate(wine_quality.target_names)},
+    target_map={k: v for v, k in enumerate(dataset.target_names)},
     # print the prompts before passing them to the language model
     verbose=True,
 )
@@ -144,7 +144,7 @@ Note that when reproducing the experiments, the UTI dataset is private and canno
 The following describes each of the notebooks, ordered by the section in the paper. These notebooks load the results (already saved in the corresponding folders) and generate the figures and tables presented in the paper:
 
 - `dataset_descriptions.ipynb`: This notebook describes the datasets used in the experiments.
-- `example_dataset_elicitation.ipynb`: This notebook demonstrates how to elicit priors from a language model for the wine quality dataset.
+- `example_dataset_elicitation.ipynb`: This notebook demonstrates how to elicit priors from a language model for the Breast Cancer dataset.
 - `llm_prior_vs_no_prior.ipynb`: This notebook compares the performance of a linear model with and without a prior elicited from a language model.
 - `llm_prior_vs_no_prior_other_models.ipynb`: This notebook compares the performance of a linear model with and without priors elicited from different language models.
 - `uti_prior_performance_vs_label_collection.ipynb`: Focusing on the UTI dataset, this notebook compares the performance of a linear model with and without priors elicited from a language model compared to the time taken to collect labels. This notebook will error, as the UTI data is private.
