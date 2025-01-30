@@ -35,6 +35,7 @@ from llm_elicited_priors.gpt import (
     LlamaOutputs,
     QwenOutputs,
     GPTOutputs,
+    DeepSeekOutputs,
     get_llm_elicitation_for_dataset,
 )
 
@@ -99,12 +100,8 @@ for dataset in args.dataset:
         "california_housing",
         "heart_disease",
         "wine_quality",
-        "maternal_health_risk",
         "diabetes",
         "hypothyroid",
-        "blood_donation",
-        "vertebral_column",
-        "heart_failure",
     ]:
         raise ValueError(f"Dataset {dataset} not recognised")
 
@@ -153,6 +150,8 @@ POSSIBLE_MODELS = [
     "meta-llama/Llama-3.1-8B-Instruct",
     "meta-llama/Llama-3.1-70B-Instruct",
     "Qwen/Qwen2.5-14B-Instruct",
+    "deepseek-r1:32b",
+    "deepseek-r1:14b-qwen-distill-fp16",
 ]
 
 if args.model not in POSSIBLE_MODELS:
@@ -203,6 +202,29 @@ elif args.model in ["Qwen/Qwen2.5-14B-Instruct"]:
     if args.quantisation != "none":
         args.model += f"-{args.quantisation}"
 
+elif args.model in ["deepseek-r1:32b", "deepseek-r1:14b-qwen-distill-fp16"]:
+
+    if args.quantisation != "int4" and args.model == "deepseek-r1:32b":
+        raise ValueError("This model must be run at 'int4' quantisation")
+
+    elif (
+        args.quantisation != "bfloat16"
+        and args.model == "deepseek-r1:14b-qwen-distill-fp16"
+    ):
+        raise ValueError("This model must be run at 'bfloat16' quantisation")
+
+    CLIENT_CLASS = DeepSeekOutputs
+    CLIENT_KWARGS = dict(
+        model_id=args.model,
+        temperature=0.1,
+        result_args=dict(
+            response_format={"type": "json_object"},
+        ),
+    )
+
+    if args.quantisation != "none":
+        args.model += f"-{args.quantisation}"
+
 elif args.model == "uninformative":
     if GET_FROM_API:
         raise ValueError("Cannot get priors for uninformative model")
@@ -211,13 +233,13 @@ else:
 
 MODEL_IS_UNINFORMATIVE = args.model == "uninformative"
 
-
 print("Using model:", args.model)
 
 # we want to save the priors and results in a subfolder
 if not MODEL_IS_UNINFORMATIVE:
     PRIORS_DIR = os.path.join(
-        PRIORS_DIR, args.model.replace("/", "-").replace(".", "-").lower()
+        PRIORS_DIR,
+        args.model.replace("/", "-").replace(".", "-").replace(":", "-").lower(),
     )
     Path(PRIORS_DIR).mkdir(parents=True, exist_ok=True)
 

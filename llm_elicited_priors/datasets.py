@@ -16,9 +16,6 @@ uci_ids = {
     "iris": 53,
     "wine_quality": 186,
     "wine": 109,
-    "maternal_health_risk": 863,
-    "vertebral_column": 212,
-    "heart_failure": 519,
 }
 
 

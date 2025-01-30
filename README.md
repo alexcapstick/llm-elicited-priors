@@ -38,6 +38,18 @@ Further, to test open source models such as Llama and Qwen, you must [install to
 pip install transformers
 ```
 
+Also, to test the DeepSeek model, you must install Ollama by following the instructions in the [official website](https://ollama.com/download) and install the `ollama` package by running the following command:
+
+```bash
+pip install ollama
+```
+
+Before running the DeepSeek model, you must then use Ollama to pull the model weights by running the following command:
+
+```bash
+ollama pull deepseek-r1:1.5b
+```
+
 Our code was run using the torch version `2.5.1` and the transformers version `4.46.0`.
 
 
@@ -137,7 +149,22 @@ All of the results presented in the paper are saved within the `results` folder,
 
 These results are used to produce the figures and tables presented in the paper, which can be generated using the notebooks in the root directory.
 
-Note that when reproducing the experiments, the UTI dataset is private and cannot be shared. Therefore, some of the scripts and notebooks will error when trying to load the UTI dataset. In these cases, simply run the experiments without the UTI dataset by using the `--dataset` flag in the scripts.
+Note that when reproducing the experiments, the UTI dataset is private and cannot be shared. Therefore, some of the scripts and notebooks will error when trying to load the UTI dataset. In these cases, simply run the experiments without the UTI dataset by using the `--dataset` flag in the scripts and specifying the other dataset names. An example command is:
+
+```bash
+python llm_prior_vs_no_prior.py --model gpt-3.5-turbo-0125 --dataset breast_cancer --get_priors --run_mcmc 
+```
+
+The shell scripts `all_models_get_priors.sh`, and `all_models_run_mcmc.sh` can be used to run the experiments for all of the models and datasets (except for UTI and the synthetic data). These scripts will run the experiments for all of the models and datasets and save the results in the corresponding folders. Note, this will require you to have also set up the necessary environment variables for the all of the language models.
+
+Note that to generate the figures, you must have tex installed. If you do not have tex installed, you can comment out the following lines in the `plotting.py` file, within the `graph_theme` function:
+
+```python
+"font.family": "serif",
+"font.serif": "Computer Modern",
+"text.usetex": True,
+```
+
 
 ### Notebooks
 

@@ -360,6 +360,133 @@ class GPTOutputs(LLMOutputs):
         return response.choices[0].message.content
 
 
+class DeepSeekOutputs(LLMOutputs):
+    def __init__(
+        self,
+        model_id: str = "deepseek-r1:32b",
+        temperature: float = 1.0,
+        result_args: t.Optional[t.Dict[str, t.Any]] = {},
+        rng: np.random._generator.Generator = None,
+        show_full_output: bool = True,
+    ):
+        """
+        This class allows you to interact with the OpenAI models.
+
+        Arguments
+        ---------
+
+        model_id : str
+            The model ID to use. This should be
+            from Ollama and be one of the DeepSeek models
+            otherwise the results may not be as expected.
+            Defaults to :code:`"deepseek-r1:32b"`.
+
+        temperature : float
+            The temperature to use.
+            Defaults to :code:`0.6`.
+
+        result_args : Dict[str, Any]
+            Additional arguments to pass to options of Ollama.
+            This is passed to :code:`options` in the Ollama API.
+            Defaults to :code:`{}`.
+
+        rng : np.random._generator.Generator
+            The random number generator to use
+            to allow for reproducibility.
+            Defaults to :code:`None`.
+
+        """
+        try:
+            from ollama import chat as ollama_chat
+            from ollama import ChatResponse as OllamaChatResponse
+        except ImportError:
+            raise ImportError(
+                "Please ensure that the ollama python library is installed if using DeepSeek. "
+                "You will also need to install Ollama software."
+            )
+
+        self.client = ollama_chat
+        self.model_id = model_id
+        self.temperature = temperature
+        self.result_args = result_args
+        self.rng = np.random.default_rng() if rng is None else rng
+        self.show_full_output = show_full_output
+
+    def get_result(self, messages: t.List[t.Dict[str, str]]) -> str:
+        """
+        Arguments
+        ---------
+
+        messages : List[Dict[str, str]]
+            A list of dictionaries with the role and content of the messages.
+
+
+        Returns
+        -------
+
+        str
+            The generated text.
+
+        """
+        reformatted_messages = []
+
+        result_args = self.result_args.copy()
+        if "response_format" in result_args:
+            response_format = result_args["response_format"]
+            del result_args["response_format"]
+            if response_format == {"type": "json_object"}:
+                messages.append(
+                    {
+                        "role": "user",
+                        "content": "This is really important: After you have finished thinking, "
+                        + "only return a JSON object with "
+                        + "'mean' and 'std' for each feature and no text or other code explaining the answer. "
+                        + "The final asnwer should start with ```json { and end with }``` and contain no other text. "
+                        + "You fail if you return anything other than a JSON object with 'mean' and 'std' for each feature. "
+                        + "Do not mention python, or any other coding language, just return a code block with the JSON object. "
+                        + "An example where there are two features is: "
+                        + "```json { $feature_0 : {'mean': ..., 'std': ...}, $feature_1: {'mean': ..., 'std': ...} }```",
+                    }
+                )
+                print("added response format instructions")
+
+        ## Looks like deepseek responds to system messages just fine
+        # for message in messages:
+        #     if message["role"] == "system":
+        #         reformatted_messages.append({"role": "assistant", "content": message["content"]})
+        #     elif message["role"] == "user":
+        #         reformatted_messages.append({"role": "user", "content": message["content"]})
+        #     else:
+        #         raise ValueError("Please ensure that the role is either 'system' or 'user'.")
+
+        response = self.client(
+            model=self.model_id,
+            messages=messages,
+            options=dict(
+                temperature=self.temperature,
+                seed=int(self.rng.integers(1e9)),
+                **self.result_args,
+            ),
+        )
+
+        if self.show_full_output:
+            print("---" * 20 + " Start Input " + "---" * 20)
+            print(messages)
+            print("---" * 20 + "  End Input  " + "---" * 20)
+
+            print("---" * 20 + " Start Response " + "---" * 20)
+            print(response["message"]["content"])
+            print("---" * 20 + "  End Response  " + "---" * 20)
+
+        final_response = (
+            response["message"]["content"].split("</think>")[1].replace("\n", "")
+        )
+        if "# Final Answer" in final_response:
+            final_response = final_response.split("Final Answer")[1]
+
+        return final_response
+
+
 def get_llm_elicitation(
     client: LLMOutputs,
     system_role: t.Optional[str] = None,
@@ -369,6 +496,7 @@ def get_llm_elicitation(
     target_map: t.Optional[t.Dict[str, int]] = None,
     verbose: bool = True,
     dry_run: bool = False,
+    try_again_on_error: bool = True,
 ) -> t.Dict[str, float]:
     """
     Given a task description, model, and feature names, this
@@ -431,6 +559,10 @@ def get_llm_elicitation(
         requests and will return a mock response.
         Defaults to :code:`False`.
 
+    try_again_on_error: bool
+        Whether to try asking the LLM if an error occurs in processing the output.
+        Defaults to :code:`True`.
+
 
     Returns
     -------
@@ -440,6 +572,9 @@ def get_llm_elicitation(
         as values.
 
     """
+
+    if target_map is None:
+        target_map = {}
 
     if not isinstance(feature_names, list):
         raise ValueError("Please ensure that the feature_names is a list")
@@ -514,37 +649,68 @@ def get_llm_elicitation(
     if dry_run:
         return None
 
-    result = client.get_result(
-        [
-            {"role": "system", "content": system_role},
-            {"role": "user", "content": user_role},
-        ]
-    )
+    # deepseek sometimes just doesnt listen to the return
+    # format instructions, so we will try a few times
+    # this will happen at the same time given a seed and
+    # so is still reproducible
+    how_many_tries = 0
+    max_tries = 3
+    still_trying = True
+    while still_trying:
 
-    processed_result = result.replace("\n", "").replace("```", "").replace("\\", "")
-    if processed_result.startswith("json"):
-        processed_result = processed_result[4:]
+        if how_many_tries > 0:
+            print(
+                "---" * 20
+                + f"trying again {how_many_tries + 1}/{max_tries}"
+                + "---" * 20
+            )
 
-    if processed_result.startswith('"'):
-        processed_result = processed_result[1:]
+        result = client.get_result(
+            [
+                {"role": "system", "content": system_role},
+                {"role": "user", "content": user_role},
+            ]
+        )
 
-    if processed_result.endswith('"'):
-        processed_result = processed_result[:-1]
+        how_many_tries += 1
 
-    if not processed_result.replace(" ", "").startswith("{"):
-        processed_result = "{" + processed_result
+        try:
+            processed_result = result.replace("\n", "").replace("\\", "")
 
-    if not processed_result.replace(" ", "").endswith("}"):
-        processed_result = processed_result + "}"
+            # for some models (often deepseek), it returns the
+            # result in a code block with an explanation
+            if "```json" in processed_result:
+                processed_result = re.findall(
+                    r"```json(.*?)```", processed_result, re.DOTALL
+                )[0]
 
-    if not processed_result.replace(" ", "").endswith("}}"):
-        processed_result = processed_result + "}}"
-    try:
-        llm_weights = {key: value for key, value in eval(processed_result).items()}
-    except:
-        print("tried the processed result:", processed_result)
-        print("the original was:", result)
-        raise ValueError("Could not evaluate the response from the language model.")
+            if processed_result.startswith("json"):
+                processed_result = processed_result[4:]
+
+            if processed_result.startswith('"'):
+                processed_result = processed_result[1:]
+
+            if processed_result.endswith('"'):
+                processed_result = processed_result[:-1]
+
+            if not processed_result.replace(" ", "").startswith("{"):
+                processed_result = "{" + processed_result
+
+            if not processed_result.replace(" ", "").endswith("}"):
+                processed_result = processed_result + "}"
+
+            if not processed_result.replace(" ", "").endswith("}}"):
+                processed_result = processed_result + "}}"
+
+            llm_weights = {key: value for key, value in eval(processed_result).items()}
+            still_trying = False
+        except:
+            print("tried the processed result:", processed_result)
+            print("the original was:", result)
+            if not try_again_on_error or how_many_tries >= max_tries:
+                raise ValueError(
+                    "Could not evaluate the response from the language model."
+                )
 
     return llm_weights
 
@@ -785,9 +951,10 @@ def get_llm_elicitation_for_dataset(
     system_roles: t.List[str],
     user_roles: t.List[str],
     feature_names: t.List[str],
-    target_map: t.Dict[str, int],
+    target_map: t.Dict[str, int] = None,
     verbose=True,
     std_lower_clip=1e-3,
+    try_again_on_error=True,
 ) -> t.List[np.array]:
     """
     Given a task description, model, and feature names, this
@@ -810,7 +977,6 @@ def get_llm_elicitation_for_dataset(
         and the strings in :code:`sytem_roles` can contain the following placeholders:
         :code:`'{feature_names}'` and :code:`'{target_map}'`
         which will be filled in before prompting the language model.
-        Defaults to :code:`None`.
 
     user_roles: List[str]
         The roles of the user.
@@ -821,12 +987,10 @@ def get_llm_elicitation_for_dataset(
         and the strings in :code:`sytem_roles` can contain the following placeholders:
         :code:`'{feature_names}'` and :code:`'{target_map}'`
         which will be filled in before prompting the language model.
-        Defaults to :code:`None`.
 
     feature_names: List[str]
         A list of the feature names that the model is being asked
         to predict.
-        Defaults to :code:`None`.
 
     target_map: Dict[str, int]
         A dictionary with the target names as keys and the values
@@ -842,6 +1006,11 @@ def get_llm_elicitation_for_dataset(
         If the standard deviation is lower than this value,
         then it will be replaced with this value.
         Defaults to :code:`1e-3`.
+
+    try_again_on_error: bool
+        Whether to try asking the LLM again if an error occurs in processing the output.
+        Defaults to :code:`True`.
+
 
 
     Returns
@@ -861,114 +1030,135 @@ def get_llm_elicitation_for_dataset(
     priors = []
 
     for i, (sr, ur) in enumerate(itertools.product(system_roles, user_roles)):
+        # deepseek sometimes doesnt provide a prior
+        # for each feature
+        how_many_tries = 0
+        max_tries = 3
+        still_trying = True
+        while still_trying:
 
-        gpt_elicitation = get_llm_elicitation(
-            client=client,
-            system_role=sr,
-            user_role=ur,
-            feature_names=feature_names,
-            target_map=target_map,
-            verbose=verbose,
-        )
-
-        try:
-
-            if isinstance(list(gpt_elicitation.values())[0], dict):
-
-                possible_mean_keys = [
-                    "mean",
-                    "mu",
-                    "m",
-                    "average",
-                    "expected_value",
-                    "expectedvalue",
-                    "expected value",
-                ]
-                possible_std_keys = [
-                    "std",
-                    "sigma",
-                    "s",
-                    "standard deviation",
-                    "standard_deviation",
-                    "standarddeviation",
-                    "stddev",
-                    "std_dev",
-                    "std dev",
-                    "std_deviation",
-                    "std deviation",
-                    "stddeviation",
-                    "standard_dev",
-                    "standarddev",
-                    "standard dev",
-                    "standardDeviation",
-                ]
-
-                mean_key = None
-                std_key = None
-                gpt_4_keys = list(gpt_elicitation.values())[0].keys()
-
-                for key in possible_mean_keys:
-                    if key in gpt_4_keys:
-                        mean_key = key
-                        break
-
-                for key in possible_std_keys:
-                    if key in gpt_4_keys:
-                        std_key = key
-                        break
-
-                if (mean_key is None) or (std_key is None):
-                    print(gpt_4_keys)
-                    raise ValueError("Could not find mean and std keys in GPT-4 output")
-
-                gpt_elicitation = {
-                    key: [value[mean_key], value[std_key]]
-                    for key, value in gpt_elicitation.items()
-                }
-
-            gpt_bias = [[0.0, 1.0]]
-            gpt_weights = []
-
-            features_in_dataset = feature_names
-            features_in_elicitation = list(gpt_elicitation.keys())
-
-            matches = find_best_matches(features_in_elicitation, features_in_dataset)
-
-            matches = {item2: item1 for item1, item2 in matches}
-
-            print("\n")
-            print("matched features:")
-            print(
-                *[f"{k}: {v}: {gpt_elicitation[v]}" for k, v in matches.items()],
-                sep="\n",
-            )
-            print("\n")
-
-            for f_dataset in feature_names:
-                f_elicitation = matches[f_dataset]
-                gpt_weights.append(gpt_elicitation[f_elicitation])
-
-            gpt_weights = np.array(gpt_weights).astype(float)
-
-            if np.any(gpt_weights[:, 1] < std_lower_clip):
+            if how_many_tries > 0:
                 print(
-                    "Zero standard deviation found in elicitation, repalced with",
-                    std_lower_clip,
+                    "---" * 20
+                    + f"trying again {how_many_tries + 1}/{max_tries}"
+                    + "---" * 20
                 )
-                gpt_weights[gpt_weights[:, 1] < std_lower_clip, 1] = std_lower_clip
-                print(gpt_weights)
 
-            prior = np.concatenate([gpt_bias, gpt_weights], axis=0)
-            print("elicitation prior:\n", prior)
+            gpt_elicitation = get_llm_elicitation(
+                client=client,
+                system_role=sr,
+                user_role=ur,
+                feature_names=feature_names,
+                target_map=target_map,
+                verbose=verbose,
+            )
+            how_many_tries += 1
 
-        except Exception as e:
-            print(f"Error getting prior: {e}")
-            print(gpt_elicitation)
-            raise e
+            try:
 
-        priors.append(prior)
+                if isinstance(list(gpt_elicitation.values())[0], dict):
 
-        pbar.update(1)
+                    possible_mean_keys = [
+                        "mean",
+                        "mu",
+                        "m",
+                        "average",
+                        "expected_value",
+                        "expectedvalue",
+                        "expected value",
+                    ]
+                    possible_std_keys = [
+                        "std",
+                        "sigma",
+                        "s",
+                        "standard deviation",
+                        "standard_deviation",
+                        "standarddeviation",
+                        "stddev",
+                        "std_dev",
+                        "std dev",
+                        "std_deviation",
+                        "std deviation",
+                        "stddeviation",
+                        "standard_dev",
+                        "standarddev",
+                        "standard dev",
+                        "standardDeviation",
+                    ]
+
+                    mean_key = None
+                    std_key = None
+                    gpt_4_keys = list(gpt_elicitation.values())[0].keys()
+
+                    for key in possible_mean_keys:
+                        if key in gpt_4_keys:
+                            mean_key = key
+                            break
+
+                    for key in possible_std_keys:
+                        if key in gpt_4_keys:
+                            std_key = key
+                            break
+
+                    if (mean_key is None) or (std_key is None):
+                        print(gpt_4_keys)
+                        raise ValueError(
+                            "Could not find mean and std keys in GPT-4 output"
+                        )
+
+                    gpt_elicitation = {
+                        key: [value[mean_key], value[std_key]]
+                        for key, value in gpt_elicitation.items()
+                    }
+
+                gpt_bias = [[0.0, 1.0]]
+                gpt_weights = []
+
+                features_in_dataset = feature_names
+                features_in_elicitation = list(gpt_elicitation.keys())
+
+                matches = find_best_matches(
+                    features_in_elicitation, features_in_dataset
+                )
+
+                matches = {item2: item1 for item1, item2 in matches}
+
+                print("\n")
+                print("matched features:")
+                print(
+                    *[f"{k}: {v}: {gpt_elicitation[v]}" for k, v in matches.items()],
+                    sep="\n",
+                )
+                print("\n")
+
+                for f_dataset in feature_names:
+                    f_elicitation = matches[f_dataset]
+                    gpt_weights.append(gpt_elicitation[f_elicitation])
+
+                gpt_weights = np.array(gpt_weights).astype(float)
+
+                if np.any(gpt_weights[:, 1] < std_lower_clip):
+                    print(
+                        "Zero standard deviation found in elicitation, repalced with",
+                        std_lower_clip,
+                    )
+                    gpt_weights[gpt_weights[:, 1] < std_lower_clip, 1] = std_lower_clip
+                    print(gpt_weights)
+
+                prior = np.concatenate([gpt_bias, gpt_weights], axis=0)
+                print("elicitation prior:\n", prior)
+
+                still_trying = False
+
+            except Exception as e:
+                print(f"Error getting prior: {e}")
+                print(gpt_elicitation)
+                if not try_again_on_error or how_many_tries >= max_tries:
+                    raise e
+
+            priors.append(prior)
+
+            pbar.update(1)
 
     pbar.close()
 

@@ -156,6 +156,7 @@ def graph_theme(colours: t.List[str] = ibm, **kwargs):
             "font.family": "serif",
             "font.serif": "Computer Modern",
             "text.usetex": True,
+            # end requiring latex
             "xtick.major.width": 1,
             "ytick.major.width": 1,
             "boxplot.whiskerprops.linestyle": "-",
