@@ -1,6 +1,6 @@
-# Using Large Language Models for Expert Prior Elicitation in Predictive Modelling
+# AutoElicit: Using Large Language Models for Expert Prior Elicitation in Predictive Modelling
 
-This is the repository corresponding to the paper [**Using Large Language Models for Expert Prior Elicitation in Predictive Modelling**](https://arxiv.org/abs/2411.17284) and contains the experimental code for reproducing the results in the paper and implementing the proposed method for new tasks. This paper is [**summarised here**](https://alexcapstick.github.io/llm-elicited-priors.html).
+This is the repository corresponding to the paper [**AutoElicit: Using Large Language Models for Expert Prior Elicitation in Predictive Modelling**](https://arxiv.org/abs/2411.17284) and contains the experimental code for reproducing the results in the paper and implementing the proposed method for new tasks. This paper is [**summarised here**](https://alexcapstick.github.io/llm-elicited-priors.html).
 
 
 ## Installation
@@ -207,7 +207,7 @@ If you find this work useful, please consider citing our preprint:
 
 ```
 @article{capstick2024using,
-  title={Using Large Language Models for Expert Prior Elicitation in Predictive Modelling},
+  title={AutoElicit: Using Large Language Models for Expert Prior Elicitation in Predictive Modelling},
   author={Capstick, Alexander and Krishnan, Rahul G and Barnaghi, Payam},
   journal={arXiv preprint arXiv:2411.17284},
   year={2024}
