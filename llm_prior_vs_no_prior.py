@@ -244,7 +244,8 @@ if not MODEL_IS_UNINFORMATIVE:
     Path(PRIORS_DIR).mkdir(parents=True, exist_ok=True)
 
 RESULTS_DIR = os.path.join(
-    RESULTS_DIR, args.model.replace("/", "-").replace(".", "-").lower()
+    RESULTS_DIR, 
+    args.model.replace("/", "-").replace(".", "-").replace(":", "-").lower(),
 )
 Path(RESULTS_DIR).mkdir(parents=True, exist_ok=True)
 

@@ -60,12 +60,12 @@ def load_and_save_uci_dataset(
         data = dataset.data.features.assign(target=dataset.data.targets)
         data.to_parquet(file_path)
 
-    # saving the original dataset as well used in the
-    # load_and_save_uci_original_dataset function
-    original_file_path = path.joinpath(f"{dataset_name}_original.parquet")
-    if not original_file_path.exists():
-        original_data = dataset.data.original
-        original_data.to_parquet(original_file_path)
+        # saving the original dataset as well used in the
+        # load_and_save_uci_original_dataset function
+        original_file_path = path.joinpath(f"{dataset_name}_original.parquet")
+        if not original_file_path.exists():
+            original_data = dataset.data.original
+            original_data.to_parquet(original_file_path)
 
     return data
 
@@ -114,12 +114,12 @@ def load_and_save_uci_original_dataset(
         data = dataset.data.original
         data.to_parquet(file_path)
 
-    # saving the standard dataset as well used in the
-    # load_and_save_uci_dataset function
-    standard_file_path = path.joinpath(f"{dataset_name}.parquet")
-    if not standard_file_path.exists():
-        standard_data = dataset.data.features.assign(target=dataset.data.targets)
-        standard_data.to_parquet(standard_file_path)
+        # saving the standard dataset as well used in the
+        # load_and_save_uci_dataset function
+        standard_file_path = path.joinpath(f"{dataset_name}.parquet")
+        if not standard_file_path.exists():
+            standard_data = dataset.data.features.assign(target=dataset.data.targets)
+            standard_data.to_parquet(standard_file_path)
 
     return data
 

@@ -182,8 +182,11 @@ The following describes each of the notebooks, ordered by the section in the pap
 - `llm_prior_vs_no_prior.ipynb`: This notebook compares the performance of a linear model with and without a prior elicited from a language model.
 - `llm_prior_vs_no_prior_other_models.ipynb`: This notebook compares the performance of a linear model with and without priors elicited from different language models.
 - `uti_prior_performance_vs_label_collection.ipynb`: Focusing on the UTI dataset, this notebook compares the performance of a linear model with and without priors elicited from a language model compared to the time taken to collect labels. This notebook will error, as the UTI data is private.
+- `demonstrating_uninformative_mixture`: This notebook presents the results of an experiment demonstrating the uninformative mixture prior.
+- `elicitation_through_data_generation`: This notebook tests a baseline of eliciting priors through data generation, where the language model is asked to generate data for a linear regression task.
 - `effects_of_bad_descriptions.ipynb`: This notebook compares the performance of a linear model with priors elicited from a language model with descriptions of increasing levels of information.
 - `how_many_task_descriptions_is_enough.ipynb`: This notebook studies the difference in prior distributions as the number of task descriptions increases.
+- `performance_with_different_numbers_of_descriptions`: This notebook studies the difference in posterior performance as the number of task descriptions increases. Note that due to the large results files, this notebook will not run.
 - `extracting_prior_internal_model.ipynb`: This notebook studies the approximate in-context prior distributions.
 - `extracting_posterior_internal_model.ipynb`: This notebook studies the approximate in-context posterior distributions.
 - `performing_mc_on_extracted_prior.ipynb`: This notebook studies the difference between the Monte Carlo sampling of the approximated in-context prior and the approximated in-context posterior.
@@ -197,8 +200,10 @@ The following describes each of the scripts used to generate the results that ar
 
 - `llm_prior_vs_no_prior.py`: This script calculates the posterior performance of a linear model with and without a prior elicited from a language model.
 - `llm_prior_vs_no_prior_with_expert_information.py`: This script calculates the posterior performance of a linear model with and without a prior elicited from a language model with additional expert information.
+- `elicitation_through_data_generation`: This script tests a baseline of eliciting priors through data generation, where the language model is asked to generate data for a linear regression task.
 - `effects_of_bad_descriptions.py`: This script calculates the posterior performance of a linear model with priors elicited from a language model with descriptions of increasing levels of information.
 - `how_many_task_descriptions_is_enough.py`: This script calculates the difference in prior distributions as the number of task descriptions increases.
+- `performance_with_different_numbers_of_descriptions`: This script calculates the difference in posterior performance as the number of task descriptions increases.
 - `extracting_prior_internal_model.py`: This script approximates the in-context prior distributions.
 - `extracting_posterior_internal_model.py`: This script approximates the in-context posterior distributions.
 - `performing_mc_on_extracted_prior.py`: This script calculates the difference between the Monte Carlo sampling of the approximated in-context prior and the approximated in-context posterior.
