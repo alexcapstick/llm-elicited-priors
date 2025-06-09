@@ -218,7 +218,7 @@ The following describes each of the scripts used to generate the results that ar
 If you find this work useful, please consider citing our preprint:
 
 ```
-@article{capstick2024using,
+@article{capstick2024autoelicit,
   title={Auto{E}licit: {U}sing Large Language Models for Expert Prior Elicitation in Predictive Modelling},
   author={Capstick, Alexander and Krishnan, Rahul G and Barnaghi, Payam},
   journal={International Conference on Machine Learning (ICML)},
