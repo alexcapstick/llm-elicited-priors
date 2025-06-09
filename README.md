@@ -221,8 +221,9 @@ If you find this work useful, please consider citing our preprint:
 @article{capstick2024using,
   title={AutoElicit: Using Large Language Models for Expert Prior Elicitation in Predictive Modelling},
   author={Capstick, Alexander and Krishnan, Rahul G and Barnaghi, Payam},
-  journal={arXiv preprint arXiv:2411.17284},
-  year={2024}
+  journal={International Conference on Machine Learning (ICML)},
+  year={2025},
+  url={https://doi.org/10.48550/arXiv.2411.17284}
 }
 ```
 
